@@ -1,0 +1,59 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="header co ntent-header well">
+    <%= f.submit 'Create Category', :class => 'btn btn-info' %>
+  </div>
+<% end %>
+
+
+
+
+
+<!-- 
+<div class="row main-row">
+  <div class="span12 main-column">
+    <div class="section with-flash content">   
+      <div class="section main-content">      
+        <div class="header content-header">
+          <h2 class="heading">New Category</h2>
+        </div>
+        <div class="section content-body">        
+          <form action="/categories" class="form-horizontal new category" method="post">
+            <div class="hidden-fields"><input id="page_path" name="page_path" type="hidden" value="/categories/new"><input name="authenticity_token" type="hidden" value="h8yJMd7s9m0g6LYA5tqm+itR9tdlrKkU7adsujoZZGE=">
+            </div>
+            <div>
+              <div class="row" fields="name">  
+                <div class="span12"> 
+                  <div class="control-group   name-field">
+                    <label class="control-label name-label" for="category_name">          Name
+                    </label>
+                    <div class="controls">                
+                      <input class="name-tag string category-name" id="category_name" name="category[name]" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="actions form-actions">      
+              <input class="btn btn-primary button submit-button" type="submit" value="Create Category">  
+              or <a class="cancel class-link" href="/categories" rel="nofollow">Cancel</a>
+            </div> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

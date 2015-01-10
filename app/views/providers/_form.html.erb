@@ -1,0 +1,73 @@
+<%= form_for(@provider ,:html=>{:class=>"form-horizontal"}) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% @provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-body">
+    <div class="form-group">
+      <label class="col-md-3 control-label">Name*</label>
+      <div class="col-md-6">
+        <%= f.text_field :name,:class=>"form-control",:placeholder=> "Name"  %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label">Description</label>
+      <div class="col-md-6">
+        <%= f.text_field :description,:class=>"form-control",:placeholder=> "Description"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label">Rating</label>
+      <div class="col-md-6">
+        <%= f.text_field :rating,:class=>"form-control",:placeholder=> "Rating"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label">Pricerange</label>
+      <div class="col-md-6">
+        <%= f.text_field :pricerange,:class=>"form-control",:placeholder=> "Pricerange"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label">Website</label>
+      <div class="col-md-6">
+        <%= f.text_field :website,:class=>"form-control",:placeholder=> "Website"  %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label">Imageurl</label>
+      <div class="col-md-6">
+        <%= f.text_field :imageurl,:class=>"form-control",:placeholder=> "Imageurl"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label">Imageurl</label>
+      <div class="col-md-6">
+        <%= f.select :service_id, Service.all.map{ |c| [c.name, c.id] } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="header co ntent-header well">
+      <div style="margin-left: 497px;"><%= f.submit 'Create Provider', :class => 'btn btn-info' %></div>
+      </div>
+    </div>
+  </div>
+<% end %>

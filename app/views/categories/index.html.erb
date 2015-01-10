@@ -1,0 +1,66 @@
+<!-- <h1>Listing categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
+ -->
+
+
+
+
+<div class="container bootstrap-content">
+  <div class="row main-row">
+    <div class="span12 main-column">
+    <div class="section with-flash content">    
+      <div class="section main-content">      
+        <div class="header co ntent-header well">
+          <a class="btn pull-right btn-info new-link new-category-link" href="<%= new_category_path%>" style="color: white" rel="nofollow">        New Category
+          </a><h2 class="heading">Category Index</h2>
+        </div>
+        <div class="section content-body">    
+          <table class="table table-striped table-bordered collection">
+            <tr>
+              <td>Category</td>
+              <td>Actions</td>
+            </tr>
+            <% @categories.each do |category| %>
+              <tr>
+                <td style="color: #0088cc;"><%= category.name %></td>
+                <td>
+                  <%= link_to 'Show', category %>
+                  <%= link_to 'Edit', edit_category_path(category) %>
+                  <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+                </tr>
+            <% end %>
+          </table>
+          <div class="empty-collection-message" style="">      No records to display
+          </div>
+          <div class="pagination">  
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
