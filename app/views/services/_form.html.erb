@@ -50,7 +50,10 @@
 
     <div class="form-group">
       <div class="header co ntent-header well">
-      <div style="margin-left: 497px;"><%= f.submit 'Create Service', :class => 'btn btn-info' %></div>
+        <div style="margin-left: 497px;">
+          <%= f.submit 'Create Service', :class => 'btn btn-info' %>
+          <%= link_to "Back", services_path, :class => 'btn btn-default' %>
+        </div>
       </div>
     </div>
 </div>

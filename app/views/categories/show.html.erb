@@ -3,3 +3,13 @@
 	</a>    
 	<h2 class="heading">Category <%= @category.name %></h2>
 </div>
+
+
+<h2>Services</h2>
+
+
+<% @category.services.each do |service|%>
+	<div class="col-md-3">
+		<%=link_to "#{service.name}", service, :style=>"color: #0088cc;margin-left: 202px;" %>
+	</div>
+<% end%>

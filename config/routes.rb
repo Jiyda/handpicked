@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   resources :services
 
-  resources :providers
+  resources :providers do
+    member do
+      get "up_down_vote", to: "providers#up_down_vote"
+      get "like", to: "providers#upvote"
+      get "dislike", to: "providers#downvote"
+    end
+  end
+
+  post "/search" => "welcome#search" , :as => "search"
 
   resources :categories
 
@@ -12,7 +20,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

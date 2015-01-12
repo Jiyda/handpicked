@@ -36,6 +36,24 @@ class ProvidersController < ApplicationController
     @provider.destroy
     redirect_to providers_path
   end
+  
+  def upvote
+    @provider = Provider.find(params[:id])
+    if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
+      @provider.vote_by :voter => current_user, :vote => 'bad'
+    end
+    redirect_to service_path(@provider.service)
+  end
+
+  def downvote
+    @provider = Provider.find(params[:id])
+    if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => false).blank?
+      @provider.vote_by :voter => current_user, :vote => 'bad'
+    end
+    redirect_to service_path(@provider.service)
+  end
+
+
 
   private
     def set_provider

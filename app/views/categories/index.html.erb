@@ -32,9 +32,11 @@
   <div class="row main-row">
     <div class="span12 main-column">
     <div class="section with-flash content">    
-      <div class="section main-content">      
+      <div class="section main-content">  
         <div class="header co ntent-header well">
+      <% if user_signed_in? %>    
           <a class="btn pull-right btn-info new-link new-category-link" href="<%= new_category_path%>" style="color: white" rel="nofollow">        New Category
+      <% end %>
           </a><h2 class="heading">Category Index</h2>
         </div>
         <div class="section content-body">    
@@ -45,7 +47,7 @@
             </tr>
             <% @categories.each do |category| %>
               <tr>
-                <td style="color: #0088cc;"><%= category.name %></td>
+                <td style="color: #0088cc;"><%=link_to "#{category.name}", category, :style=>"color: #0088cc;" %></td>
                 <td>
                   <%= link_to 'Show', category %>
                   <%= link_to 'Edit', edit_category_path(category) %>

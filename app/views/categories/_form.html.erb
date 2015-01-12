@@ -1,4 +1,4 @@
-<%= form_for(@category) do |f| %>
+<%= form_for(@category ,:html=>{:class=>"form-horizontal"}) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -9,11 +9,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-body">
+    <div class="form-group">
+      <label class="col-md-3 control-label">Name*</label>
+      <div class="col-md-6">
+        <%= f.text_field :name,:class=>"form-control",:placeholder=> "Name"  %>
+      </div>
+    </div>
   </div>
-  <div class="header co ntent-header well">
+  <div class="header co ntent-header well" style="PADDING-LEFT: 518PX;">
     <%= f.submit 'Create Category', :class => 'btn btn-info' %>
   </div>
 <% end %>

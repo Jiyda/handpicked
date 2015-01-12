@@ -1,24 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="container bootstrap-content">
+  <div class="row main-row">
+    <div class="span12 main-column">
+    <div class="section with-flash content">    
+      <div class="section main-content">      
+        <div class="header co ntent-header well">
+          <h2 class="heading">Service Name:<%= @service.name %></h2>
+        </div>
+        <% @service.providers.each do |provider|%>
+          <div class="section content-body header content-header well"> 
+            NMAE: <%= provider.name %><br>
+            DESCRIPTION: <%= provider.description %>
+          	<div class="navigatorrs">
+              <% if user_signed_in? %>
+                <a href="<%= like_provider_path(provider) %>" class=" btn btn-default">
+                  <button type="button" data="#{provider.id}" class="btn btn-default custujlo"><i class="fa fa-angle-up"></i></button>
+                </a>
+                <% else %>
+                <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal" style="width: 125px;"><button type="button" id="popup" class="btn btn-default custujlo" style="width: 84px;"><i class="fa fa-angle-up"></i></button></a>
+              <% end %>
+              <p id="vote_count"><%= provider.votes.where(:vote_flag=>"false").size %></p>
+              <% if user_signed_in? %>
+                <a href="<%= dislike_provider_path(provider) %>" class=" btn btn-default dislike">
+                  <button type="button"  data="#{provider.id}" class="btn btn-default custujlo"><i class="fa fa-angle-down"></i></button>
+                </a>
+                <% else %>
+                <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal" style="width: 125px;"><button type="button" id="popup" class="btn btn-default custujlo" style="width: 84px;"><i class="fa fa-angle-down"></i></button></a>
+              <% end %>
+            </div>
+          </div>
+         <% end %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog  " aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Alert!</h3>
+  </div>
+  <div class="modal-body">
+    <p>You Need To Sign In First</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary">OK</button>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog  " aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Alert!</h3>
+  </div>
+  <div class="modal-body">
+    <p>You Need To Sign In First</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary">OK</button>
+  </div>
+</div>
 
-<p>
-  <strong>Imageurl:</strong>
-  <%= @service.imageurl %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @service.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<script>
+  $(document).ready(function(){
+    $(".up_down_vote").click(function(event){
+      event.preventDefault();
+      id = $(".up_down_vote").find('button').attr('data')
+      $.get( "/providers/"+id+"/up_down_vote");
+    });
+  });
+</script> 

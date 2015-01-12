@@ -1,51 +1,14 @@
-<!-- <h1>Listing providers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Website</th>
-      <th>Pricerange</th>
-      <th>Rating</th>
-      <th>Imageurl</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @providers.each do |provider| %>
-      <tr>
-        <td><%= provider.name %></td>
-        <td><%= provider.description %></td>
-        <td><%= provider.website %></td>
-        <td><%= provider.pricerange %></td>
-        <td><%= provider.rating %></td>
-        <td><%= provider.imageurl %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Provider', new_provider_path %>
- -->
-
-
-
-
- <div class="container bootstrap-content">
+<div class="container bootstrap-content">
   <div class="row main-row">
     <div class="span12 main-column">
     <div class="section with-flash content">    
       <div class="section main-content">      
         <div class="header co ntent-header well">
-          <a class="btn pull-right btn-info new-link new-category-link" href="<%= new_provider_path%>" style="color: white" rel="nofollow">        New Provider
-          </a><h2 class="heading">Provider Index</h2>
+          <% if user_signed_in? %>
+            <a class="btn pull-right btn-info new-link new-category-link" href="<%= new_provider_path%>" style="color: white" rel="nofollow">        New Provider
+            </a>
+          <% end %>
+          <h2 class="heading">Provider Index</h2>
         </div>
         <div class="section content-body">    
           <table class="table table-striped table-bordered collection">
@@ -61,7 +24,7 @@
             </tr>
             <% @providers.each do |provider| %>
               <tr>
-                <td style="color: #0088cc;"><%=link_to "#{provider.name}",:url=>provider_path(provider)  %></td>
+                <td><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></td>
                 <td><%= provider.description %></td>
                 <td><%= provider.website %></td>
                 <td><%= provider.pricerange %></td>

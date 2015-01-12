@@ -1,12 +1,24 @@
-<div class="row main-row">
-	<div class="span12 main-column">
-		<div class="section with-flash content">
-			<div class="header content-header hero-unit">      
-				<div class="section welcome-message text-center">          
-					<h1>Welcome to Handpickedoha</h1>
-      		<h3>Find Cool Services in Doha</h3>
+<div class="header co ntent-header well">
+	<div class="row main-row">
+		<div class="span12 main-column">
+			<div class="section with-flash content">
+				<div class="header content-header hero-unit">      
+					<div class="section welcome-message text-center">          
+						<h1>Welcome to Handpickedoha</h1>
+	      		<h3>Find Cool Services in Doha</h3>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<% @services.each do |service| %>
+	<div class="col-md-3">
+		<%=link_to "#{service.name}", service , :style=>"color: #0088cc;" %>
+	</div>
+<% end %>
+
+
+
