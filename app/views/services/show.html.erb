@@ -1,72 +1,84 @@
-<div class="container bootstrap-content">
-  <div class="row main-row">
-    <div class="span12 main-column">
-    <div class="section with-flash content">    
-      <div class="section main-content">      
-        <div class="header co ntent-header well">
-          <h2 class="heading">Service Name:<%= @service.name %></h2>
-        </div>
-        <% @service.providers.each do |provider|%>
-          <div class="section content-body header content-header well"> 
-            NMAE: <%= provider.name %><br>
-            DESCRIPTION: <%= provider.description %>
-          	<div class="navigatorrs">
-              <% if user_signed_in? %>
-                <a href="<%= like_provider_path(provider) %>" class=" btn btn-default">
-                  <button type="button" data="#{provider.id}" class="btn btn-default custujlo"><i class="fa fa-angle-up"></i></button>
-                </a>
-                <% else %>
-                <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal" style="width: 125px;"><button type="button" id="popup" class="btn btn-default custujlo" style="width: 84px;"><i class="fa fa-angle-up"></i></button></a>
-              <% end %>
-              <p id="vote_count"><%= provider.votes.where(:vote_flag=>"false").size %></p>
-              <% if user_signed_in? %>
-                <a href="<%= dislike_provider_path(provider) %>" class=" btn btn-default dislike">
-                  <button type="button"  data="#{provider.id}" class="btn btn-default custujlo"><i class="fa fa-angle-down"></i></button>
-                </a>
-                <% else %>
-                <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal" style="width: 125px;"><button type="button" id="popup" class="btn btn-default custujlo" style="width: 84px;"><i class="fa fa-angle-down"></i></button></a>
-              <% end %>
-            </div>
-          </div>
-         <% end %>
+<div class="header content-header well">  
+  <img src='/assets/Bg.jpg' alt="Smiley face" style="width: 1289px;height: 440px;margin-left: -96px;margin-top: -41px;"> 
+  <div style="margin-left: 200px;margin-top: -133px;color: white;">
+    <h1 class="heading">What are the best <%= @service.name %><br> in Doha?</h1>
+  </div>
+</div>
+<h4>Top Ranked Places</h4>
+<% @service.providers.each_with_index do |provider,i|%>
+  <div class="content-header col-md-9">
+    <div class="col-md-9 well">
+      <div class="col-md-1" style="font-size: -webkit-xxx-large; margin-top: 25px;color: darkgray;"><%= i+1 %></div>
+      <div style="margin-left: 136px;height: 89px;">
+        <h4><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h4><br>
+        <%= provider.description %>
       </div>
     </div>
+    <div class="col-md-3">
+      <div class="navigatorrs">
+        <% if user_signed_in? %>
+          <a href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>" class=" btn btn-default like" style="width: 125px;">
+            <button type="button" data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
+              <i class="fa fa-angle-up"></i>
+            </button>
+          </a>
+          <% else %>
+          <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
+            <button type="button" id="popup" class="btn btn-default custujlo" data-toggle="modal" data-target="#myModal" style="width: 84px;">
+              <i class="fa fa-angle-up"></i>
+            </button>
+          </a>
+        <% end %>
+          <p id="vote_count_<%= provider.id %>" style="font-size: -webkit-xxx-large;padding-top: 13px;margin-left: 48px;"><%= provider.get_upvotes.size %></p>
+        <% if user_signed_in? %>
+          <a href="<%= dislike_provider_path(provider) %>" id="dislike" data="<%= provider.id %>" class=" btn btn-default dislike" style="width: 125px;">
+            <button type="button"  data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
+              <i class="fa fa-angle-down"></i>
+            </button>
+          </a>
+        <% else %>
+          <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
+            <button type="button" id="popup" data-toggle="modal" data-target="#myModal" class="btn btn-default custujlo" style="width: 84px;">
+              <i class="fa fa-angle-down"></i>
+            </button>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Alert</h4>
+      </div>
+      <div class="modal-body">
+        You Need To Login First To Vote The Provider
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
 
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog  " aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Alert!</h3>
-  </div>
-  <div class="modal-body">
-    <p>You Need To Sign In First</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary">OK</button>
-  </div>
-</div>
-
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog  " aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Alert!</h3>
-  </div>
-  <div class="modal-body">
-    <p>You Need To Sign In First</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary">OK</button>
-  </div>
-</div>
 
 <script>
   $(document).ready(function(){
-    $(".up_down_vote").click(function(event){
+    $(".like").click(function(event){
       event.preventDefault();
-      id = $(".up_down_vote").find('button').attr('data')
-      $.get( "/providers/"+id+"/up_down_vote");
+      id= $(this).attr('data')
+      $.get("/providers/"+id+"/like");
+    });
+    $(".dislike").click(function(event){
+      event.preventDefault();
+      id= $(this).attr('data')
+      $.get("/providers/"+id+"/dislike");
     });
   });
 </script> 

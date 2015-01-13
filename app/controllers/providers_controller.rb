@@ -40,9 +40,9 @@ class ProvidersController < ApplicationController
   def upvote
     @provider = Provider.find(params[:id])
     if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
-      @provider.vote_by :voter => current_user, :vote => 'bad'
+      @provider.vote_by :voter => current_user, :vote => 'like'
     end
-    redirect_to service_path(@provider.service)
+    render :layout => false
   end
 
   def downvote
@@ -50,7 +50,7 @@ class ProvidersController < ApplicationController
     if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => false).blank?
       @provider.vote_by :voter => current_user, :vote => 'bad'
     end
-    redirect_to service_path(@provider.service)
+    render :layout => false
   end
 
 
