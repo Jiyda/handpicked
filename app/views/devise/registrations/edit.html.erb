@@ -11,6 +11,13 @@
 
   <div class="form-body">
     <div class="form-group">
+      <label class="col-md-3 control-label">Change Image</label>
+      <div class="col-md-3">
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label class="col-md-3 control-label">Email</label>
       <div class="col-md-3">
         <%= f.email_field :email, autofocus: true,:class=>"form-control",:placeholder=> "Email" %>
@@ -39,13 +46,6 @@
       <label class="col-md-3 control-label">Current Password</label><i>(we need your current password to confirm your changes)</i>
       <div class="col-md-3">
         <%= f.password_field :current_password, autocomplete: "off" ,:class=>"form-control",:placeholder=> "Password Confirmation" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-3 control-label">Change Image</label>
-      <div class="col-md-3">
-        <%= f.file_field :avatar %>
       </div>
     </div>
 
