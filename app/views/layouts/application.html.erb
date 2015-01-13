@@ -52,6 +52,9 @@
             <li><%= link_to "Categories", categories_path  %></li>
             <li><%= link_to "Providers", providers_path  %></li>
             <li><%= link_to "Services", services_path  %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "My Favorites", my_favorites_path  %></li>
+            <% end %>
             <li style="margin-top: 15px;">
               <%= search_form_for(Service.search(params[:q]),:url=>search_path ,:method=>"post") do |f| %>
                 <%= f.search_field :name_cont %>
@@ -63,6 +66,7 @@
               <li>
                 <a class="class-link" style="margin-top: -27px;" rel="nofollow"><%= link_to "Sign out", destroy_user_session_path,:method => :delete%></a>
               </li>
+              <li><%= link_to "Account" , edit_user_registration_path%></li>
             <% else %>
               <li >
                 <a class="class-link" href="<%= new_user_session_path %>" rel="nofollow">Login</a>

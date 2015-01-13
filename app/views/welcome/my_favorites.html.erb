@@ -1,0 +1,24 @@
+<div class="header content-header well">  
+  <h1 class="heading">My Favorites</h1>
+</div>
+
+
+	<table class="table table-striped table-bordered collection">
+	<thead>
+		<tr class="field-heading-row">
+		  <th class="Service-heading">Name</th>
+      <th class="description-heading">Description</th>
+      <th class="imageurl-heading">Website</th>   
+		</tr>
+	</thead>
+	<tbody>
+	<%@providers.each do |provider|%>
+		<tr>
+			<td><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></td>
+			<td><%=provider.description%></td>
+			<td><%=provider.website%></td>
+		</tr>
+	<%end%>
+	</tbody>
+</table>
+

@@ -41,6 +41,8 @@ class ProvidersController < ApplicationController
     @provider = Provider.find(params[:id])
     if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
       @provider.vote_by :voter => current_user, :vote => 'like'
+    else
+      @provider.vote_by :voter => current_user, :vote => 'bad'
     end
     render :layout => false
   end

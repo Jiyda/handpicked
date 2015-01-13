@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   post "/search" => "welcome#search" , :as => "search"
+  get 'users/my_favorites' => 'welcome#my_favorites', :as => 'my_favorites'
 
   resources :categories
 

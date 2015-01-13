@@ -20,7 +20,7 @@
             </tr>
             <% @services.each do |service| %>
               <tr>
-                <td style="color: #0088cc;"><%=link_to "#{service.name}", service %></td>
+                <td><%=link_to "#{service.name}", service, :style=>"color: #0088cc;"  %></td>
                 <td><%= service.description %></td>
                 <td><%= service.imageurl %></td>
                 <td>
