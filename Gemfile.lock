@@ -57,6 +57,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    exception_handler (0.3.45)
     execjs (2.2.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -191,6 +192,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.0.0)
   devise
+  exception_handler
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
