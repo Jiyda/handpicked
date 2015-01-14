@@ -30,11 +30,11 @@ class RegistrationsController < Devise::RegistrationsController
 	end
 
 	def user_params
-	  params[:user].permit(:email, :password, :password_confirmation, :avatar)
+	  params[:user].permit(:email, :password, :password_confirmation, :avatar , :name)
 	end
 
 	#Need :current_password for password update
 	def user_params_password_update
-	  params[:user].permit(:email, :password, :password_confirmation, :current_password, :avatar)
+	  params[:user].permit(:email, :password, :password_confirmation, :current_password, :avatar , :name)
 	end
 end

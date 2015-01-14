@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'f1b1ca108f12c34326a24eadd642afb60db712f8a6cc5bc4a2c642713280966ab0de725ed1ac3c17bef2c0fb859f05cbacc66fd23144d4d4d11297b8ba0c99d4'
+  config.secret_key = 'f1b1ca108f12c34326a24eadd642afb60db712f8a6cc5bc4a2c642713280966ab0de725ed1ac3c17bef2c0fb859f05cbacc66fd23144d4d4d11297b8ba0c99d4'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -256,4 +256,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 end

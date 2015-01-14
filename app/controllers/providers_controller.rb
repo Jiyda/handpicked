@@ -39,19 +39,22 @@ class ProvidersController < ApplicationController
   
   def upvote
     @provider = Provider.find(params[:id])
-    if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
-      @provider.vote_by :voter => current_user, :vote => 'like'
-    else
-      @provider.vote_by :voter => current_user, :vote => 'bad'
-    end
+    # if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
+    # byebug
+    @provider.vote_by :voter => current_user, :vote => 'like'
+    @provider.update_weighted_score
+    # else
+    #   @provider.vote_by :voter => current_user, :vote => 'bad'
+    # end
     render :layout => false
   end
 
   def downvote
     @provider = Provider.find(params[:id])
-    if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => false).blank?
+    # if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => false).blank?
       @provider.vote_by :voter => current_user, :vote => 'bad'
-    end
+      @provider.update_weighted_score
+    # end
     render :layout => false
   end
 

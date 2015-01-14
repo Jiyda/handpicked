@@ -1,3 +1,5 @@
+ENV['FACEBOOK_KEY'] = '738285709588823'
+ENV['FACEBOOK_SECRET'] = '1d404a31eeabf28a6ed693f7b4604a98'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

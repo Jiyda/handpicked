@@ -37,50 +37,11 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body style="background-color: #DFDFDF;">
-
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Handpickedoha2</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Home", root_path  %></li>
-            <li><%= link_to "Categories", categories_path  %></li>
-            <li><%= link_to "Providers", providers_path  %></li>
-            <li><%= link_to "Services", services_path  %></li>
-            <% if user_signed_in? %>
-              <li><%= link_to "My Favorites", my_favorites_path  %></li>
-            <% end %>
-            <li style="margin-top: 15px;">
-              <%= search_form_for(Service.search(params[:q]),:url=>search_path ,:method=>"post") do |f| %>
-                <%= f.search_field :name_cont %>
-                <%= f.submit "Search" %>
-              <% end %>
-
-            </li>
-            <% if user_signed_in? %>
-              <li>
-                <a class="class-link" style="margin-top: -27px;" rel="nofollow"><%= link_to "Sign out", destroy_user_session_path,:method => :delete%></a>
-              </li>
-              <li><%= link_to "Account" , edit_user_registration_path%></li>
-            <% else %>
-              <li >
-                <a class="class-link" href="<%= new_user_session_path %>" rel="nofollow">Login</a>
-              </li>
-              <li >
-                <a class="class-link" href="<%= new_user_registration_path %>" rel="nofollow">Sign up</a>
-              </li>
-            <% end %>
-
-          </ul>
-        </div>
-      </div>
-    </div>
-
+    <% if (params[:controller] == "devise/sessions" || params[:controller] == "registrations") && !(params[:action] == "edit" && params[:controller] == "registrations") %>
+      <%= render 'layouts/device_header' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -88,12 +49,7 @@
           <%= yield %>
         </div>
       </div><!--/row-->
-
-      <footer>
-        
-      </footer>
-
+      <footer></footer>
     </div> <!-- /container -->
-
   </body>
 </html>
