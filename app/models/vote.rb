@@ -1,5 +1,5 @@
 class ActsAsVotable::Vote < ActiveRecord::Base
-	after_save :update_weighted_score
+	before_save :update_weighted_score
 	belongs_to :votable, :polymorphic => true
 	belongs_to :provider,:class_name=>"Provider",:foreign_key => :votable_id
 
@@ -22,7 +22,6 @@ class ActsAsVotable::Vote < ActiveRecord::Base
   end
 
   def update_weighted_score
-  	byebug
     self.weighted_score = weighted_score
   end
 
