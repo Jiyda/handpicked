@@ -12,8 +12,8 @@
         <li><%= link_to "Categories", categories_path  %></li>
         <li><%= link_to "Providers", providers_path  %></li>
         <li><%= link_to "Services", services_path  %></li>
-        <li><%= link_to "submissions" , submissions_path %>
         <% if user_signed_in? %>
+          <li><%= link_to "submissions" , submissions_path %>
           <li><%= link_to "My Favorites", my_favorites_path  %></li>
         <% end %>
         <li style="margin-top: 15px;">
