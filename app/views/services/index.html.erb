@@ -19,16 +19,20 @@
               <td>Actions</td>
             </tr>
             <% @services.each do |service| %>
-              <tr>
-                <td><%=link_to "#{service.name}", service, :style=>"color: #0088cc;"  %></td>
-                <td><%= service.description %></td>
-                <td><%= service.imageurl %></td>
-                <td>
-                  <%= link_to 'Show', service %>
-                  <%= link_to 'Edit', edit_service_path(service) %>
-                  <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </td>
-                </tr>
+              <% if service.is_approved=="Approved"%>
+                <tr>
+                  <td><%=link_to "#{service.name}", service, :style=>"color: #0088cc;"  %></td>
+                  <td><%= service.description %></td>
+                  <td><%= service.imageurl %></td>
+                  <td>
+                    <%= link_to 'Show', service %>
+                    <% if service.user_id == current_user.id %>
+                      <%= link_to 'Edit', edit_service_path(service) %>
+                      <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                  </td>
+                  </tr>
+                <%end%>
             <% end %>
           </table>
           <div class="empty-collection-message" style="">      No records to display

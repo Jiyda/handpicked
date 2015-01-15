@@ -32,8 +32,10 @@
                 <td><%= provider.imageurl %></td>
                 <td>
                   <%= link_to 'Show', provider %>
-                  <%= link_to 'Edit', edit_provider_path(provider) %>
-                  <%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% if provider.user_id == current_user.id %>
+                    <%= link_to 'Edit', edit_provider_path(provider) %>
+                    <%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%end%>
                 </td>
                 </tr>
             <% end %>

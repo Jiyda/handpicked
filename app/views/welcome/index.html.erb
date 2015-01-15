@@ -14,11 +14,7 @@
 </div>
 
 
-<% @services.each do |service| %>
-	<div class="col-md-3">
-		<%=link_to "#{service.name}", service , :style=>"color: #0088cc;" %>
-	</div>
-<% end %>
-
-
-
+<div class="infinite-table">
+	<%= render :partial => 'services', :object => @services %>
+</div>
+<%= link_to 'Load More Services', root_path(:page => @services.next_page), :class => 'load-more-posts', :remote => true if @services.next_page%>

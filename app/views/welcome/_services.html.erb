@@ -1,0 +1,1 @@
+<% @services.each do |service| %><% if service.is_approved=="Approved"%><div class="col-md-12"><%=link_to "#{service.name}", service , :style=>"color: #0088cc;" %></div><%end%><% end %>

@@ -1,37 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <div class="header content-header well">
-  <a class="btn btn-info pull-right edit-link category-link" href="<%= edit_provider_path(@provider)%>" rel="nofollow">        Edit Provider
-  </a>    
+  <% if @provider.user_id == current_user.id %>
+    <a class="btn btn-info pull-right edit-link category-link" href="<%= edit_provider_path(@provider)%>" rel="nofollow">        Edit Provider
+    </a>
+  <% end %>    
   <h2 class="heading">Provider <%= @provider.name %></h2>
 </div>
-
-<p>
-  <strong>Description:</strong>
-  <%= @provider.description %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @provider.website %>
-</p>
-
-<p>
-  <strong>Pricerange:</strong>
-  <%= @provider.pricerange %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @provider.rating %>
-</p>
-
-<p>
-  <strong>Imageurl:</strong>
-  <%= @provider.imageurl %>
-</p>
-
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+<div class="col-md-3">
+  <% if @provider.image.present? %>
+    <%= image_tag @provider.image.url,:style=>"width: 330px;height: 200px;" %>
+  <% else %>
+    <img src='/assets/no_image.jpg' style="width: 350px;height: 225px;">
+  <% end %>
+</div>
+<div class="col-md-9 form-horizontal">
+  <div class="form-body">
+    <div class="form-group">
+      <label class="col-md-3 control-label">Description:</label>
+      <div class="col-md-6 ">
+        <%= @provider.description%>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Website:</label>
+      <div class="col-md-6 ">
+        <%= @provider.website%>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Pricerange:</label>
+      <div class="col-md-6 ">
+        <%= @provider.pricerange%>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Rating:</label>
+      <div class="col-md-6">
+        <%= @provider.rating%>
+      </div>
+    </div>
+  </div>
+</div>

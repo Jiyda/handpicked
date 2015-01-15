@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   post "/search" => "welcome#search" , :as => "search"
   get 'users/my_favorites' => 'welcome#my_favorites', :as => 'my_favorites'
-
+  get '/status' => 'welcome#submissions' , :as => 'submissions'
+  get '/service/:id/approve' => 'welcome#approve' , :as => 'approve'
+  get '/service/:id/disapprove' => 'welcome#disapprove' , :as => 'disapprove'
   resources :categories
 
   devise_for :users, :controllers => {:registrations => "registrations" , omniauth_callbacks: 'omniauth_callbacks'}

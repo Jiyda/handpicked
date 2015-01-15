@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114123133) do
+ActiveRecord::Schema.define(version: 20150115132720) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "errors", force: true do |t|
+    t.string   "usable_type"
+    t.integer  "usable_id"
+    t.text     "class_name"
+    t.text     "message"
+    t.text     "trace"
+    t.text     "target_url"
+    t.text     "referer_url"
+    t.text     "params"
+    t.text     "user_agent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,7 +54,12 @@ ActiveRecord::Schema.define(version: 20150114123133) do
     t.integer  "service_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "weighted_score", default: 0
+    t.integer  "weighted_score",     default: 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "user_id"
   end
 
   create_table "services", force: true do |t|
@@ -49,6 +69,12 @@ ActiveRecord::Schema.define(version: 20150114123133) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "user_id"
+    t.string   "is_approved"
   end
 
   create_table "users", force: true do |t|
@@ -69,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150114123133) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

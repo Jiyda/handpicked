@@ -15,3 +15,19 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery.inview
+
+
+$(function() {
+  var loading_posts;
+  loading_posts = false;
+  return $('a.load-more-posts').on('inview', function(e, visible) {
+    if (loading_posts || !visible) {
+      return;
+    }
+    loading_posts = true;
+    return $.getScript($(this).attr('href'), function() {
+      return loading_posts = false;
+    });
+  });
+});

@@ -1,6 +1,8 @@
 <div class="header content-header well">
-	<a class="btn btn-info pull-right edit-link category-link" href="<%= edit_category_path(@category)%>" rel="nofollow">        Edit Category
-	</a>    
+	<% if @category.user_id == current_user.id %>
+		<a class="btn btn-info pull-right edit-link category-link" href="<%= edit_category_path(@category)%>" rel="nofollow">        Edit Category
+		</a>    
+	<% end %>
 	<h2 class="heading">Category <%= @category.name %></h2>
 </div>
 
@@ -9,7 +11,9 @@
 
 
 <% @category.services.each do |service|%>
-	<div class="col-md-3">
-		<%=link_to "#{service.name}", service, :style=>"color: #0088cc;margin-left: 202px;" %>
-	</div>
+	<% if service.is_approved=="Approved"%>
+		<div class="col-md-3">
+			<%=link_to "#{service.name}", service, :style=>"color: #0088cc;margin-left: 202px;" %>
+		</div>
+	<% end %>
 <% end%>

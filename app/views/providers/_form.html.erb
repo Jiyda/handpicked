@@ -51,16 +51,17 @@
 
 
     <div class="form-group">
-      <label class="col-md-3 control-label">Imageurl</label>
+      <label class="col-md-3 control-label">Select Image</label>
       <div class="col-md-6">
-        <%= f.text_field :imageurl,:class=>"form-control",:placeholder=> "Imageurl"  %>
+        <%= f.file_field :image %>
+        <%#= f.text_field :imageurl,:class=>"form-control",:placeholder=> "Imageurl"  %>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-3 control-label">Imageurl</label>
+      <label class="col-md-3 control-label">Select Service</label>
       <div class="col-md-6">
-        <%= f.select :service_id, Service.all.map{ |c| [c.name, c.id] } %>
+        <%= f.select :service_id, Service.all.map{ |c| [c.name, c.id] },:class=>"form-control"  %>
       </div>
     </div>
 

@@ -1,0 +1,6 @@
+$('.infinite-table').append('<%=escape_javascript(render partial: "services" ) %>');
+
+$('a.load-more-posts').attr('href', '<%=root_path page: @services.next_page%>');
+<% unless @services.next_page %>
+	$('a.load-more-posts').remove();
+<%end%>

@@ -4,50 +4,64 @@
     <h1 class="heading">What are the best <%= @service.name %><br> in Doha?</h1>
   </div>
 </div>
-<h4>Top Ranked Places</h4>
-<% @service.providers.each_with_index do |provider,i|%>
-  <div class="content-header col-md-9">
-    <div class="col-md-9 well">
-      <div class="col-md-1" style="font-size: -webkit-xxx-large; margin-top: 25px;color: darkgray;"><%= i+1 %></div>
-      <div style="margin-left: 136px;height: 89px;">
-        <h4><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h4><br>
-        <%= provider.description %>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="navigatorrs">
-        <% if user_signed_in? %>
-          <a href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>" class=" btn btn-default like" style="width: 125px;">
-            <button type="button" data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
-              <i class="fa fa-angle-up"></i>
-            </button>
-          </a>
-          <% else %>
-          <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
-            <button type="button" id="popup" class="btn btn-default custujlo" data-toggle="modal" data-target="#myModal" style="width: 84px;">
-              <i class="fa fa-angle-up"></i>
-            </button>
-          </a>
-        <% end %>
-          <p id="vote_count_<%= provider.id %>" style="font-size: -webkit-xxx-large;padding-top: 13px;margin-left: 48px;"><%= provider.get_upvotes.size %></p>
-        <% if user_signed_in? %>
-          <a href="<%= dislike_provider_path(provider) %>" id="dislike" data="<%= provider.id %>" class=" btn btn-default dislike" style="width: 125px;">
-            <button type="button"  data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
-              <i class="fa fa-angle-down"></i>
-            </button>
-          </a>
-        <% else %>
-          <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
-            <button type="button" id="popup" data-toggle="modal" data-target="#myModal" class="btn btn-default custujlo" style="width: 84px;">
-              <i class="fa fa-angle-down"></i>
-            </button>
-          </a>
-        <% end %>
-      </div>
-    </div>
+<% if user_signed_in? %>
+  <div class="pull-right">
+    <a class="btn  btn-info new-link new-category-link" href="<%= new_provider_path%>" style="color: white" rel="nofollow">Add a Place</a>
   </div>
 <% end %>
 
+<div class="col-md-9">
+  <h4>Top Ranked Places</h4>
+  <% @service.providers.each_with_index do |provider,i|%>
+    <div class="content-header col-md-12">
+      <div class="col-md-9 well">
+        <div class="col-md-1" style="font-size: -webkit-xxx-large; margin-top: 25px;color: darkgray;"><%= i+1 %></div>
+        <div style="margin-left: 136px;height: 89px;">
+          <h4><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h4><br>
+          <%= provider.description %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="navigatorrs">
+          <% if user_signed_in? %>
+            <a href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>" class=" btn btn-default like" style="width: 125px;">
+              <button type="button" data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
+                <i class="fa fa-angle-up"></i>
+              </button>
+            </a>
+            <% else %>
+            <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
+              <button type="button" id="popup" class="btn btn-default custujlo" data-toggle="modal" data-target="#myModal" style="width: 84px;">
+                <i class="fa fa-angle-up"></i>
+              </button>
+            </a>
+          <% end %>
+            <p id="vote_count_<%= provider.id %>" style="font-size: -webkit-xxx-large;padding-top: 13px;margin-left: 48px;"><%= provider.get_upvotes.size %></p>
+          <% if user_signed_in? %>
+            <a href="<%= dislike_provider_path(provider) %>" id="dislike" data="<%= provider.id %>" class=" btn btn-default dislike" style="width: 125px;">
+              <button type="button"  data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
+                <i class="fa fa-angle-down"></i>
+              </button>
+            </a>
+          <% else %>
+            <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
+              <button type="button" id="popup" data-toggle="modal" data-target="#myModal" class="btn btn-default custujlo" style="width: 84px;">
+                <i class="fa fa-angle-down"></i>
+              </button>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="col-md-3">
+  <% if @service.image.present? %>
+    <%= image_tag @service.image.url, :style=>"width: 316px;height: 220px;margin-top: 35px;" %>
+  <% else %>
+    <img src='/assets/no_image.jpg' style="width: 316px;height: 220px;margin-top: 35px;">
+  <% end %>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -17,6 +17,7 @@ class ProvidersController < ApplicationController
 
   def create
     @provider = Provider.new(provider_params)
+    @provider.user_id = current_user.id
     if @provider.save
       redirect_to provider_path(@provider)
     else
@@ -39,8 +40,7 @@ class ProvidersController < ApplicationController
   
   def upvote
     @provider = Provider.find(params[:id])
-    # if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
-    # byebug
+  # if @provider.votes.where(:voter_id =>current_user.id,:vote_flag => true).blank?
     @provider.vote_by :voter => current_user, :vote => 'like'
     @provider.update_weighted_score
     # else
@@ -66,6 +66,6 @@ class ProvidersController < ApplicationController
     end
 
     def provider_params
-      params.require(:provider).permit(:name, :description, :website, :pricerange, :rating, :imageurl , :service_id, :imageurl)
+      params.require(:provider).permit(:name, :description, :website, :pricerange, :rating, :imageurl, :image , :service_id, :imageurl)
     end
 end
