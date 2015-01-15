@@ -34,7 +34,7 @@ gem 'spring',        group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'pg', group: :production
+# gem 'pg', group: :production
 
 # Use debugger
 gem 'byebug', group: [:development, :test]
@@ -48,3 +48,7 @@ gem 'ransack'
 gem 'omniauth-facebook'
 gem 'exception_handler'
 gem 'will_paginate'
+group :production do
+	gem 'thin'
+	gem 'pg'
+end
