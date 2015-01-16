@@ -10,7 +10,9 @@
   <h2 class="heading">Provider <%= @provider.name %></h2>
 </div>
 <div class="col-md-3">
-  <% if @provider.image.present? %>
+  <% if @provider.imageurl.present? %>
+    <%=image_tag @provider.imageurl, :style=>"width: 330px;height: 200px;" %>
+  <% elsif @provider.image.present? %>
     <%= image_tag @provider.image.url,:style=>"width: 330px;height: 200px;" %>
   <% else %>
     <img src='/assets/no_image.jpg' style="width: 350px;height: 225px;">

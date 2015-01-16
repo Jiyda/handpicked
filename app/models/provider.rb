@@ -27,6 +27,6 @@ class Provider < ActiveRecord::Base
   end
 
   def update_weighted_score
-    self.update(:weighted_score => weighted_score)
+    self.update(:weighted_score => weighted_score.to_s)
   end
 end	

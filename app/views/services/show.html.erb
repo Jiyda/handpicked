@@ -5,18 +5,30 @@
   </div>
 </div>
 <% if user_signed_in? %>
+  <% if user_signed_in? && @service.user_id == current_user.id %>
+    <div class="pull-right">
+      <a class="btn  btn-info new-link new-category-link" href="<%= edit_service_path(@service)%>" style="color: white" rel="nofollow">Edit Service</a>
+    </div>
+  <% end %>
   <div class="pull-right">
     <a class="btn  btn-info new-link new-category-link" href="<%= new_provider_path%>" style="color: white" rel="nofollow">Add a Place</a>
   </div>
 <% end %>
 
-<div class="col-md-9">
+<div class="col-md-8">
   <h4>Top Ranked Places</h4>
   <% @service.providers.each_with_index do |provider,i|%>
     <div class="content-header col-md-12">
       <div class="col-md-9 well">
-        <div class="col-md-1" style="font-size: -webkit-xxx-large; margin-top: 25px;color: darkgray;"><%= i+1 %></div>
-        <div style="margin-left: 136px;height: 89px;">
+        <div class="col-md-1">
+          <% if provider.imageurl.present? %>
+            <%=image_tag provider.imageurl, :style=>"width: 220px0px;height: 125px;" %>
+          <% elsif provider.image.present? %>
+            <%= image_tag provider.image.url,:style=>"width: 220px0px;height: 125px;" %>
+          <% else %>
+          <% end %>
+        </div>
+        <div style="margin-left: 185px;height: 89px;">
           <h4><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h4><br>
           <%= provider.description %>
         </div>
@@ -55,12 +67,53 @@
     </div>
   <% end %>
 </div>
-<div class="col-md-3">
-  <% if @service.image.present? %>
-    <%= image_tag @service.image.url, :style=>"width: 316px;height: 220px;margin-top: 35px;" %>
-  <% else %>
-    <img src='/assets/no_image.jpg' style="width: 316px;height: 220px;margin-top: 35px;">
-  <% end %>
+<div class="col-md-4 boxes-slid00" style="background-color: white;">
+  <div class="col-md-1">
+    <img src="/assets/media_006.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+  </div>
+  <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
+    <h4>
+      <a href="#"><b>What are the best places for seafood in SF?</b></a>
+    </h4>
+    <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
+      <li>
+        <a href="#">Fitness &amp; Outdoors</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-4 boxes-slid00" style="background-color: white;">
+  <div class="col-md-1">
+    <img src="/assets/img004.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+  </div>
+  <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
+    <h4>
+      <a href="#"><b>What are the best places for seafood in SF?</b></a>
+    </h4>
+    <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
+      <li>
+        <a href="#">Fitness &amp; Outdoors</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-4 boxes-slid00" style="background-color: white;">
+  <div class="col-md-1">
+    <img src="/assets/img008.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+  </div>
+  <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
+    <h4>
+      <a href="#"><b>What are the best places for seafood in SF?</b></a>
+    </h4>
+    <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
+      <li>
+        <a href="#">Fitness &amp; Outdoors</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-4 boxes-slid00" style="background-color: white;">
+  <a href="#"><img alt="..." src="/assets/ad%20banner.png" style="width: 380px;height: 317px;margin-left: -13px;"></a>
 </div>
 
 <!-- Modal -->

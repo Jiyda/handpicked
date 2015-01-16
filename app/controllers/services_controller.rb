@@ -19,7 +19,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user_id = current_user.id
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to services_path , :flash => { :success => "Your sevice is created successfully and not approved check submission" }
     else
       render :new
     end

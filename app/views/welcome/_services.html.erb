@@ -1,1 +1,22 @@
-<% @services.each do |service| %><% if service.is_approved=="Approved"%><div class="col-md-12"><%=link_to "#{service.name}", service , :style=>"color: #0088cc;" %></div><%end%><% end %>
+<% @services.each do |service| %>
+	<% if service.is_approved=="Approved"%>
+		<div class="col-md-3">
+			<a href="<%= service_path(service)%>">
+			<div class="col-xs-12 col-sm-6 col-md-3 text-center homepage-tile" style="padding: 0px">
+				<% if service.imageurl.present? %>
+					<%=image_tag service.imageurl, :style=>"width: 285px;height: 220px;" %>
+				<% else %>
+					<div style="width: 285px;height: 220px;"></div>
+				<% end %>
+					<div class="tile-overlay text-center" style="pointer-events: none; position: absolute; top: 40%; width: 100%;color: white;text-align: center;margin-left: 85px;">
+						<span class="tile-title" style="text-align: center;display: inline-block; color: white;padding: 8px; font-size: 28px; /* font-weight: bold; */ /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */ border: 2px solid white;">
+							<span class="view service-name ">
+								<%= service.name %>
+							</span>
+						</span>
+					</div>
+				</div>
+			</a>
+		</div>
+	<%end%>
+<% end %>
