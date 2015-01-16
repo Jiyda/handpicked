@@ -1,8 +1,10 @@
 <div class="header content-header well">
-	<% if @category.user_id == current_user.id %>
-		<a class="btn btn-info pull-right edit-link category-link" href="<%= edit_category_path(@category)%>" rel="nofollow">        Edit Category
-		</a>    
-	<% end %>
+	<% if user_signed_in? %>
+		<% if @category.user_id == current_user.id %>
+			<a class="btn btn-info pull-right edit-link category-link" href="<%= edit_category_path(@category)%>" rel="nofollow">        Edit Category
+			</a>    
+		<% end %>
+	<%end%>
 	<h2 class="heading">Category <%= @category.name %></h2>
 </div>
 

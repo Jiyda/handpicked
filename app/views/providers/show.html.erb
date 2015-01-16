@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class="header content-header well">
-  <% if @provider.user_id == current_user.id %>
-    <a class="btn btn-info pull-right edit-link category-link" href="<%= edit_provider_path(@provider)%>" rel="nofollow">        Edit Provider
-    </a>
-  <% end %>    
+  <% if user_signed_in? %>
+    <% if @provider.user_id == current_user.id %>
+      <a class="btn btn-info pull-right edit-link category-link" href="<%= edit_provider_path(@provider)%>" rel="nofollow">        Edit Provider
+      </a>
+    <% end %>   
+  <% end %> 
   <h2 class="heading">Provider <%= @provider.name %></h2>
 </div>
 <div class="col-md-3">

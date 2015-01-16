@@ -26,13 +26,16 @@ class ServicesController < ApplicationController
   end
 
   def update
-    @service.update(service_params)
-    respond_with(@service)
+    if @service.update(service_params)
+      redirect_to service_path(@service)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @service.destroy
-    respond_with(@service)
+    redirect_to services_path
   end
 
   private
