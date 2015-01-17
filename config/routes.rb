@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount UserImpersonate::Engine => "/impersonate", as: "impersonate_engine"
   resources :services
 
   resources :providers do

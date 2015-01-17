@@ -48,5 +48,8 @@ class User < ActiveRecord::Base
     user
   end
 
+  def staff?
+    true
+  end
 
 end

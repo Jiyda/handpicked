@@ -21,7 +21,9 @@
             <%= f.search_field :name_cont %>
             <%= f.submit "Search" %>
           <% end %>
-
+        </li>
+        <li style="margin-top: 8px;">
+          <%= select_tag "user_id", options_for_select(["Guest"]+User.all.collect{ |u| [u.email, u.id]}, :selected=> (current_user ? current_user.id : '') ),{:class=>"form-control" ,:onchange=>"login_user(this.id);"} %>
         </li>
         <% if user_signed_in? %>
           <li>
@@ -41,3 +43,23 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  function login_user(user_id){
+    user_id = $('#user_id').val();
+    console.log(user_id)
+    if(user_id == "Guest"){
+      $.ajax({
+        url: '/users/sign_out',
+        type: "delete"
+      }).done(function() {
+        window.location = '<%=root_path%>';
+      });
+    }
+    else{
+      $.get('/impersonate/user/'+user_id, function( data ) {
+        window.location = '<%=root_path%>';
+      });
+    }
+  }
+</script>
