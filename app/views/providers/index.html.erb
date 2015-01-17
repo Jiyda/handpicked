@@ -19,7 +19,9 @@
               <td>Pricerange</td>
               <td>Rating</td>
               <td>Imageurl</td>
-              <td>Actions</td>
+              <% if user_signed_in? %>                  
+                <td style="width: 75px;"><b>Actions</b></td>
+              <%end%>
 
             </tr>
             <% @providers.each do |provider| %>
@@ -31,12 +33,15 @@
                 <td><%= provider.rating %></td>
                 <td><%= provider.imageurl %></td>
                 <td>
-                  <%= link_to 'Show', provider %>
                   <% if user_signed_in? %>
                     <% if provider.user_id == current_user.id %>
-                      <%= link_to 'Edit', edit_provider_path(provider) %>
-                      <%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    <%end%>
+                      <a href="<%= edit_provider_path(provider) %>">
+                        <i class="fa fa-fw fa-pencil-square-o"></i>
+                      </a>
+                      <a href="<%= provider %>">
+                        <i class="fa fa-trash-o fa-fw"></i>
+                      </a>
+                    <% end %>
                   <%end%>
                 </td>
                 </tr>

@@ -19,7 +19,7 @@
   <h4>Top Ranked Places</h4>
   <% @service.providers.each_with_index do |provider,i|%>
     <div class="content-header col-md-12">
-      <div class="col-md-9 well">
+      <div class="col-md-10 well">
         <div class="col-md-1">
           <% if provider.imageurl.present? %>
             <%=image_tag provider.imageurl, :style=>"width: 220px0px;height: 125px;" %>
@@ -28,12 +28,12 @@
           <% else %>
           <% end %>
         </div>
-        <div style="margin-left: 185px;height: 89px;">
-          <h4><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h4><br>
+        <div style="margin-left: 215px;height: 89px;margin-top: -20px;">
+          <h2><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h2><br>
           <%= provider.description %>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="navigatorrs">
           <% if user_signed_in? %>
             <a href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>" class=" btn btn-default like" style="width: 125px;">
@@ -67,53 +67,55 @@
     </div>
   <% end %>
 </div>
-<div class="col-md-4 boxes-slid00" style="background-color: white;">
-  <div class="col-md-1">
-    <img src="/assets/media_006.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+<div class="col-md-4">
+  <div class=" boxes-slid00" style="background-color: white;">
+    <div class="col-md-1">
+      <img src="/assets/media_006.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+    </div>
+    <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
+      <h4>
+        <a href="#"><b>What are the best places for seafood in SF?</b></a>
+      </h4>
+      <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
+        <li>
+          <a href="#">Fitness &amp; Outdoors</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
-    <h4>
-      <a href="#"><b>What are the best places for seafood in SF?</b></a>
-    </h4>
-    <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
-      <li>
-        <a href="#">Fitness &amp; Outdoors</a>
-      </li>
-    </ul>
+  <div class="boxes-slid00" style="background-color: white;">
+    <div class="col-md-1">
+      <img src="/assets/img004.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+    </div>
+    <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
+      <h4>
+        <a href="#"><b>What are the best places for seafood in SF?</b></a>
+      </h4>
+      <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
+        <li>
+          <a href="#">Fitness &amp; Outdoors</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="col-md-4 boxes-slid00" style="background-color: white;">
-  <div class="col-md-1">
-    <img src="/assets/img004.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+  <div class="boxes-slid00" style="background-color: white;">
+    <div class="col-md-1">
+      <img src="/assets/img008.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+    </div>
+    <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
+      <h4>
+        <a href="#"><b>What are the best places for seafood in SF?</b></a>
+      </h4>
+      <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
+        <li>
+          <a href="#">Fitness &amp; Outdoors</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
-    <h4>
-      <a href="#"><b>What are the best places for seafood in SF?</b></a>
-    </h4>
-    <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
-      <li>
-        <a href="#">Fitness &amp; Outdoors</a>
-      </li>
-    </ul>
+  <div class="boxes-slid00" style="background-color: white;">
+    <a href="#"><img alt="..." src="/assets/ad%20banner.png" style="width: 380px;height: 317px;margin-left: -13px;"></a>
   </div>
-</div>
-<div class="col-md-4 boxes-slid00" style="background-color: white;">
-  <div class="col-md-1">
-    <img src="/assets/img008.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
-  </div>
-  <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
-    <h4>
-      <a href="#"><b>What are the best places for seafood in SF?</b></a>
-    </h4>
-    <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
-      <li>
-        <a href="#">Fitness &amp; Outdoors</a>
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="col-md-4 boxes-slid00" style="background-color: white;">
-  <a href="#"><img alt="..." src="/assets/ad%20banner.png" style="width: 380px;height: 317px;margin-left: -13px;"></a>
 </div>
 
 <!-- Modal -->

@@ -19,11 +19,14 @@
               <tr>
                 <td style="color: #0088cc;"><%=link_to "#{category.name}", category, :style=>"color: #0088cc;" %></td>
                 <td>
-                  <%= link_to 'Show', category %>
                   <% if user_signed_in? %>
                     <% if category.user_id == current_user.id %>
-                      <%= link_to 'Edit', edit_category_path(category) %>
-                      <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <a href="<%= edit_category_path(category) %>">
+                        <i class="fa fa-fw fa-pencil-square-o"></i>
+                      </a>
+                      <a href="<%= category %>">
+                        <i class="fa fa-trash-o fa-fw"></i>
+                      </a>
                     <%end%>
                   <%end%>
                 </td>

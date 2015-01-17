@@ -15,8 +15,10 @@
             <tr>
               <td>Service</td>
               <td>Description</td>
-              <td>Imageurl</td>
-              <td>Actions</td>
+              <td><b>Imageurl</b></td>
+              <% if user_signed_in? %>                  
+                <td style="width: 75px;"><b>Actions</b></td>
+              <%end%>
             </tr>
             <% @services.each do |service| %>
               <% if service.is_approved=="Approved"%>
@@ -25,11 +27,14 @@
                   <td><%= service.description %></td>
                   <td><%= service.imageurl %></td>
                   <td>
-                    <%= link_to 'Show', service %>
                     <% if user_signed_in? %>
                       <% if service.user_id == current_user.id %>
-                        <%= link_to 'Edit', edit_service_path(service) %>
-                        <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <a href="<%= edit_service_path(service) %>">
+                          <i class="fa fa-fw fa-pencil-square-o"></i>
+                        </a>
+                        <a href="<%= service %>">
+                          <i class="fa fa-trash-o fa-fw"></i>
+                        </a>
                       <% end %>
                     <%end%>
                   </td>
