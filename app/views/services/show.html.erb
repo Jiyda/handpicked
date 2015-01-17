@@ -18,11 +18,11 @@
 <div class="col-md-8">
   <h4>Top Ranked Places</h4>
   <% @service.providers.each_with_index do |provider,i|%>
-    <div class="content-header col-md-12">
-      <div class="col-md-10 well">
+    <div class="content-header col-md-12 ">
+      <div class="col-md-10 well  boxes-slid00">
         <div class="col-md-1">
           <% if provider.imageurl.present? %>
-            <%=image_tag provider.imageurl, :style=>"width: 220px0px;height: 125px;" %>
+            <%=image_tag provider.imageurl, :style=>"width: 168px;height: 125px;margin-left: -33px;margin-top: -18px;"%>
           <% elsif provider.image.present? %>
             <%= image_tag provider.image.url,:style=>"width: 220px0px;height: 125px;" %>
           <% else %>
