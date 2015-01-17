@@ -22,9 +22,11 @@
             <%= f.submit "Search" %>
           <% end %>
         </li>
-        <li style="margin-top: 8px;">
-          <%= select_tag "user_id", options_for_select(["Guest"]+User.all.collect{ |u| [u.email, u.id]}, :selected=> (current_user ? current_user.id : '') ),{:class=>"form-control" ,:onchange=>"login_user(this.id);"} %>
-        </li>
+        <%if Rails.env == "development" %>
+          <li style="margin-top: 8px;">
+            <%= select_tag "user_id", options_for_select(["Guest"]+User.all.collect{ |u| [u.email, u.id]}, :selected=> (current_user ? current_user.id : '') ),{:class=>"form-control" ,:onchange=>"login_user(this.id);"} %>
+          </li>
+        <% end %>
         <% if user_signed_in? %>
           <li>
             <a class="class-link" style="margin-top: -27px;" rel="nofollow"><%= link_to "Sign out", destroy_user_session_path,:method => :delete%></a>
