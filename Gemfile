@@ -37,7 +37,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
 	gem 'devise-guests'
 	gem 'spring'
-	gem 'user_impersonate', :require => 'user_impersonate',:git => "https://github.com/jailalawat/user_impersonate2.git"
+	
 end
 # Use debugger
 gem 'byebug', group: [:development, :test]
@@ -55,3 +55,4 @@ group :production do
 	gem 'thin'
 	gem 'pg'
 end
+gem 'user_impersonate', :require => 'user_impersonate',:git => "https://github.com/jailalawat/user_impersonate2.git"
