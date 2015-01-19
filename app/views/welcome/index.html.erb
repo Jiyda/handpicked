@@ -1,20 +1,30 @@
-<div class="header co ntent-header well">
+<div class="container bootstrap-content">
 	<div class="row main-row">
 		<div class="span12 main-column">
-			<div class="section with-flash content">
+			<div class="section with-flash content">      
 				<div class="header content-header hero-unit">      
-					<div class="section welcome-message text-center">          
+					<div class="section welcome-message text-center">          	
 						<h1>Welcome to Handpickedoha</h1>
-	      		<h3>Find Cool Services in Doha</h3>
+      			<h3>Find Cool Services in Doha</h3>
 					</div>
 				</div>
+				<div class="section content-body">    
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">  
+							<ul class="collection services">
+								<div class="infinite-table">
+									<%= render :partial => 'services', :object => @services %>
+								</div>
+								<%= link_to 'Load More Services', root_path(:page => @services.next_page), :class => 'load-more-posts', :remote => true if @services.next_page%>
+							</ul>
+							<div class="empty-collection-message" style="display:none">      No records to display
+							</div>  
+						</div>
+					</div>  
+				</div>      
 			</div>
 		</div>
 	</div>
 </div>
 
 
-<div class="infinite-table">
-	<%= render :partial => 'services', :object => @services %>
-</div>
-<%= link_to 'Load More Services', root_path(:page => @services.next_page), :class => 'load-more-posts', :remote => true if @services.next_page%>

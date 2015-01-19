@@ -1,31 +1,20 @@
 <% @services.each do |service| %>
 	<% if service.is_approved=="Approved"%>
-		<div class="col-md-3">
-			<a href="<%= service_path(service) %>">
-				<div class="aaa tile-overlay text-center">
-					<span style="text-align: center;display: inline-block; color: #0088cc;font-size: 15px; border: 2px solid darkgray;">
-						<span class="view service-name ">
-						<%= service.name %>
-						</span>
-					</span>
-				</div>
-			</a>
-			<a href="<%= service_path(service)%>">
-			<div class="col-xs-12 col-sm-6 col-md-3 text-center homepage-tile" style="padding: 0px">
+		<li class="odd item" data-rapid-context="service:1">      
+			<a href="<%= service.id %>">
+				<div class="col-xs-12 col-sm-6 col-md-3 text-center homepage-tile" style="padding: 0px">
+				<!-- <img alt="Pizza" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTnr0-fVrVack3dClCxll6KYKNFT0fhNPO3D6Z_YSbipzzjIwj0"> -->
 				<% if service.imageurl.present? %>
-					<%=image_tag service.imageurl, :style=>"width: 285px;height: 220px;" %>
-				<% else %>
-					<div style="width: 285px;height: 220px;"></div>
-				<% end %>
-					<div class="tile-overlay text-center" style="pointer-events: none; position: absolute; top: 40%; width: 100%;color: white;text-align: center;margin-left: 85px;">
-						<span class="tile-title" style="text-align: center;display: inline-block; color: white;padding: 8px; font-size: 28px; border: 2px solid white;">
-							<span class="view service-name ">
-								<%= service.name %>
-							</span>
-						</span>
+					<%=image_tag service.imageurl %>
+				<%end%>
+					<div class="tile-overlay text-center">                    
+						<span class="tile-title"><span class="view service-name "><%= service.name %></span></span>
 					</div>
 				</div>
 			</a>
-		</div>
-	<%end%>
+		</li>
+	<% end %>
 <% end %>
+
+
+

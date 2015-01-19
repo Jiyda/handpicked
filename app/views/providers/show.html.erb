@@ -1,48 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<div class="header content-header well">
-  <% if user_signed_in? %>
-    <% if @provider.user_id == current_user.id %>
-      <a class="btn btn-info pull-right edit-link category-link" href="<%= edit_provider_path(@provider)%>" rel="nofollow">        Edit Provider
-      </a>
-    <% end %>   
-  <% end %> 
-  <h2 class="heading">Provider <%= @provider.name %></h2>
-</div>
-<div class="col-md-3">
-  <% if @provider.imageurl.present? %>
-    <%=image_tag @provider.imageurl, :style=>"width: 330px;height: 200px;" %>
-  <% elsif @provider.image.present? %>
-    <%= image_tag @provider.image.url,:style=>"width: 330px;height: 200px;" %>
-  <% else %>
-    <img src='/assets/no_image.jpg' style="width: 350px;height: 225px;">
-  <% end %>
-</div>
-<div class="col-md-9 form-horizontal">
-  <div class="form-body">
-    <div class="form-group">
-      <label class="col-md-3 control-label">Description:</label>
-      <div class="col-md-6 ">
-        <%= @provider.description%>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-3 control-label">Website:</label>
-      <div class="col-md-6 ">
-        <%= @provider.website%>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-3 control-label">Pricerange:</label>
-      <div class="col-md-6 ">
-        <%= @provider.pricerange%>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-3 control-label">Rating:</label>
-      <div class="col-md-6">
-        <%= @provider.rating%>
+<div class="row main-row">
+  <div class="span12 main-column">
+    <div class="section with-flash content">    
+      <div class="section main-content">      
+        <div class="header content-header well">
+          <% if user_signed_in? %>
+            <% if @provider.user_id == current_user.id %>
+              <a class="btn pull-right edit-link provider-link" href="<%=edit_provider_path(@provider)%>" rel="nofollow">Edit Provider</a>
+            <%end%>
+          <%end%>
+          <h2 class="heading">Provider <%= @provider.name%></h2>
+        </div>
+        <div class="section content-body">    
+          <div class="description view provider-description "><%= @provider.description%></div>
+            <div class="form-horizontal">
+              <div class="row" fields="website, pricerange, rating, imageurl, service">  
+                <div class="span12"> 
+                  <div class="control-group   website-field">
+                    <label class="control-label website-label" for="">Website</label>
+                    <div class="controls"><span class="website-tag view provider-website "><%= @provider.website%></span>
+                  </div>
+                </div>
+                <div class="control-group   pricerange-field">
+                  <label class="control-label pricerange-label" for="">Pricerange</label>
+                  <div class="controls"><span class="pricerange-tag view provider-pricerange "><%= @provider.pricerange%></span>
+                  </div>
+                </div>
+                <div class="control-group   pricerange-field">
+                  <label class="control-label pricerange-label" for="">Rating</label>
+                  <div class="controls"><span class="pricerange-tag view provider-pricerange "><%= @provider.rating%></span>
+                  </div>
+                </div>
+                <div class="control-group   pricerange-field">
+                  <label class="control-label pricerange-label" for="">Imageurl</label>
+                  <div class="controls"><span class="pricerange-tag view provider-pricerange "><%= @provider.imageurl%></span>
+                  </div>
+                </div>
+                <div class="control-group   pricerange-field">
+                  <label class="control-label pricerange-label" for="">Service</label>
+                  <div class="controls"><span class="pricerange-tag view provider-pricerange ">
+                  <%if @provider.service.present? %>
+                    <%= @provider.service.name%></span>
+                  <%end%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

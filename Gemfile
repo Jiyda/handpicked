@@ -45,7 +45,6 @@ gem "paperclip"
 gem 'devise'
 gem "less-rails"
 gem "font-awesome-rails"
-gem 'twitter-bootstrap-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'ransack'
 gem 'omniauth-facebook'

@@ -4,9 +4,9 @@
     <div class="section with-flash content">    
       <div class="section main-content">  
         <div class="header co ntent-header well">
-      <% if user_signed_in? %>    
-          <a class="btn pull-right btn-info new-link new-category-link" href="<%= new_category_path%>" style="color: white" rel="nofollow">        New Category
-      <% end %>
+          <% if user_signed_in? %>    
+            <a class="btn pull-right btn-primary new-link new-category-link" href="<%= new_category_path%>" style="color: white" rel="nofollow">        New Category
+          <% end %>
           </a><h2 class="heading">Category Index</h2>
         </div>
         <div class="section content-body">    
@@ -16,9 +16,16 @@
               <td>Actions</td>
             </tr>
             <% @categories.each do |category| %>
-              <tr>
-                <td style="color: #0088cc;"><%=link_to "#{category.name}", category, :style=>"color: #0088cc;" %></td>
-                <td>
+
+              <tr class="odd category" data-rapid-context="category:1">                
+                <td class="this-view">  
+                  <span class="view model::category:1">
+                    <a class="category-link" href="<%#= category_path %>" rel="nofollow">
+                      <span class="view category-name "><%=link_to "#{category.name}", category %></span>
+                    </a>
+                  </span>
+                </td>
+                <td class="actions-view">
                   <% if user_signed_in? %>
                     <% if category.user_id == current_user.id %>
                       <a href="<%= edit_category_path(category) %>">
@@ -30,7 +37,7 @@
                     <%end%>
                   <%end%>
                 </td>
-                </tr>
+              </tr>
             <% end %>
           </table>
           <div class="empty-collection-message" style="">      No records to display
@@ -43,3 +50,5 @@
     </div>
   </div>
 </div>
+
+

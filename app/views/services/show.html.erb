@@ -1,124 +1,132 @@
-<div class="header content-header well">  
-  <img src='/assets/Bg.jpg' alt="Smiley face" style="width: 1289px;height: 440px;margin-left: -96px;margin-top: -41px;"> 
-  <div style="margin-left: 200px;margin-top: -133px;color: white;">
-    <h1 class="heading">What are the best <%= @service.name %><br> in Doha?</h1>
-  </div>
-</div>
-<% if user_signed_in? %>
-  <% if user_signed_in? && @service.user_id == current_user.id %>
-    <div class="pull-right">
-      <a class="btn  btn-info new-link new-category-link" href="<%= edit_service_path(@service)%>" style="color: white" rel="nofollow">Edit Service</a>
-    </div>
-  <% end %>
-  <div class="pull-right">
-    <a class="btn  btn-info new-link new-category-link" href="<%= new_provider_path%>" style="color: white" rel="nofollow">Add a Place</a>
-  </div>
-<% end %>
+<div class="span12 main-column">
+  <div class="section with-flash content">    
+    <div class="section main-content">      
+      <div class="section content-body">   
+        <div class="banerr">
+          <div class="container-main">
+            <div class="banner-intro">
+              <div class="row">
+                <div class="col-xs-4 col-sm-3 mobiview">
+                  <div class="img-pro">                                    
+                  </div>
+                </div>
+                <div class="col-sm-8 col-sm-9 mobiview">
+                  <div class="contet">                                    
+                    <h1>What are the best <%= @service.name %> in Doha ?</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>            
+        </div><!--banerrclose-->
+        <div class="container-main">
+          <div class="row mk00">
+            <div class="col-xs-12">
+              <div class="headdig-ilm">
+                <p>Top Ranked Places</p>
+              </div>
+              <% @service.providers.each_with_index do |provider,i|%>
+                <div class="boxes-slid00">
+                  <div class="img-box00">
+                    <img alt="dsadsadasd" src="<%= provider.imageurl %>">
+                    <span><%= i+1%></span>
+                  </div>
+                  <div class="middle-box-img"><h3><%= provider.name%></h3>
+                    <p><%= provider.description%>.</p>
+                  </div>
+                  
+                  <div class="navigatorrss">
+                    <% if user_signed_in? %>
+                      <a class="like" href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>">
+                        <button type="button"  data="#{provider.id}" class="btn btn-default custujlo">
+                          <i class="fa fa-angle-up"></i>
+                        </button>
+                      </a>
+                      <%else%>
+                      <a class="like" href="/providers/1-dsadsadasd/like">
+                        <button type="button" data="1" class="btn btn-default custujlo">
+                          <i class="fa fa-angle-up"></i>
+                        </button>
+                      </a>
+                    <%end%>
 
-<div class="col-md-8">
-  <h4>Top Ranked Places</h4>
-  <% @service.providers.each_with_index do |provider,i|%>
-    <div class="content-header col-md-12 ">
-      <div class="col-md-10 well  boxes-slid00">
-        <div class="col-md-1">
-          <% if provider.imageurl.present? %>
-            <%=image_tag provider.imageurl, :style=>"width: 168px;height: 125px;margin-left: -33px;margin-top: -18px;"%>
-          <% elsif provider.image.present? %>
-            <%= image_tag provider.image.url,:style=>"width: 220px0px;height: 125px;" %>
-          <% else %>
-          <% end %>
+                    <p id="vote_count_<%= provider.id %>"><%= provider.get_upvotes.size %></p>
+
+
+                    <% if user_signed_in? %>
+                      <a class="dislike" href="<%= dislike_provider_path(provider) %>" id="dislike" data="<%= provider.id %>">
+                        <button type="button"  data="#{provider.id}" class="btn btn-default custujlo">
+                          <i class="fa fa-angle-down"></i>
+                        </button>
+                      </a>
+                      <%else%>
+                      <a class="dislike" href="/providers/1-dsadsadasd/dislike">
+                        <button type="button" data="1" class="btn btn-default custujlo">
+                          <i class="fa fa-angle-down"></i>
+                        </button>
+                      </a>
+                    <%end%>
+                  </div>
+                
+
+
+                </div> 
+              <%end%>
+            </div>
+          </div>
         </div>
-        <div style="margin-left: 215px;height: 89px;margin-top: -20px;">
-          <h2><b><%=link_to "#{provider.name}", provider , :style=>"color: #0088cc;" %></b></h2><br>
-          <%= provider.description %>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="navigatorrs">
-          <% if user_signed_in? %>
-            <a href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>" class=" btn btn-default like" style="width: 125px;">
-              <button type="button" data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
-                <i class="fa fa-angle-up"></i>
-              </button>
-            </a>
-            <% else %>
-            <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
-              <button type="button" id="popup" class="btn btn-default custujlo" data-toggle="modal" data-target="#myModal" style="width: 84px;">
-                <i class="fa fa-angle-up"></i>
-              </button>
-            </a>
-          <% end %>
-            <p id="vote_count_<%= provider.id %>" style="font-size: -webkit-xxx-large;padding-top: 13px;margin-left: 48px;"><%= provider.get_upvotes.size %></p>
-          <% if user_signed_in? %>
-            <a href="<%= dislike_provider_path(provider) %>" id="dislike" data="<%= provider.id %>" class=" btn btn-default dislike" style="width: 125px;">
-              <button type="button"  data="#{provider.id}" class="btn btn-default custujlo" style="width: 80px;">
-                <i class="fa fa-angle-down"></i>
-              </button>
-            </a>
-          <% else %>
-            <a href="#myModal" role="button" class="btn btn-default" style="width: 125px;">
-              <button type="button" id="popup" data-toggle="modal" data-target="#myModal" class="btn btn-default custujlo" style="width: 84px;">
-                <i class="fa fa-angle-down"></i>
-              </button>
-            </a>
-          <% end %>
-        </div>
-      </div>
+
+
+<div class="right-div">
+  <div class="headdig-ilm">                    
+    <p>More CrowdRecs in San Francisco</p>
+  </div>
+  <div class="boxes-slid00">
+    <div class="img-boxes-side"
+      <img alt="..." src="/assets/media_006.jpg">
     </div>
-  <% end %>
-</div>
-<div class="col-md-4">
-  <div class=" boxes-slid00" style="background-color: white;">
-    <div class="col-md-1">
-      <img src="/assets/media_006.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
-    </div>
-    <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
-      <h4>
-        <a href="#"><b>What are the best places for seafood in SF?</b></a>
-      </h4>
-      <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
-        <li>
-          <a href="#">Fitness &amp; Outdoors</a>
-        </li>
+    <div class="description-d">
+      <h4><a href="#">What are the best places for seafood in SF?</a></h4>
+      <ul class="listind">
+        <li><a href="#">Fitness &amp; Outdoors</a></li>
       </ul>
     </div>
   </div>
-  <div class="boxes-slid00" style="background-color: white;">
-    <div class="col-md-1">
-      <img src="/assets/img004.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+  <div class="boxes-slid00">
+    <div class="img-boxes-side">
+      <img alt="..." src="/assets/img004.jpg">
     </div>
-    <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
-      <h4>
-        <a href="#"><b>What are the best places for seafood in SF?</b></a>
-      </h4>
-      <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
-        <li>
-          <a href="#">Fitness &amp; Outdoors</a>
-        </li>
+    <div class="description-d">
+      <h4><a href="#">What are the best places for seafood in SF?</a></h4>
+      <ul class="listind">
+        <li><a href="#">Fitness &amp; Outdoors</a></li>
       </ul>
     </div>
   </div>
-  <div class="boxes-slid00" style="background-color: white;">
-    <div class="col-md-1">
-      <img src="/assets/img008.jpg" style="width: 90px;height: 90px;margin-left: -30px;">
+  <div class="boxes-slid00">
+    <div class="img-boxes-side">
+      <img alt="..." src="/assets/img008.jpg">
     </div>
-    <div class="col-md-3" style=" width: 70%;padding: 4px 0;margin-left: 54px;">
-      <h4>
-        <a href="#"><b>What are the best places for seafood in SF?</b></a>
-      </h4>
-      <ul style="list-style: none;margin-left: -38px;margin-top: -7px;">
-        <li>
-          <a href="#">Fitness &amp; Outdoors</a>
-        </li>
+    <div class="description-d">
+      <h4><a href="#">What are the best places for seafood in SF?</a></h4>
+      <ul class="listind">
+        <li><a href="#">Fitness &amp; Outdoors</a></li>
       </ul>
     </div>
   </div>
-  <div class="boxes-slid00" style="background-color: white;">
-    <a href="#"><img alt="..." src="/assets/ad%20banner.png" style="width: 380px;height: 317px;margin-left: -13px;"></a>
+  <div class="boxes-slid00">
+    <a href="#"><img alt="..." src="/assets/ad%20banner.png"></a>
   </div>
 </div>
 
-<!-- Modal -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -135,7 +143,6 @@
     </div>
   </div>
 </div>
-
 
 <script>
   $(document).ready(function(){
