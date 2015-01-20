@@ -45,7 +45,7 @@
                         </button>
                       </a>
                       <%else%>
-                      <a class="alert" href="/providers/1-dsadsadasd/like">
+                      <a class="abox" href="/providers/1-dsadsadasd/like">
                         <button type="button" data="1" class="btn btn-default custujlo">
                           <i class="fa fa-angle-up"></i>
                         </button>
@@ -59,7 +59,7 @@
                         </button>
                       </a>
                       <%else%>
-                      <a class="alert dislike" href="">
+                      <a class="abox" href="">
                         <button type="button" data="" class="btn btn-default custujlo">
                           <i class="fa fa-angle-down"></i>
                         </button>
@@ -128,7 +128,7 @@
       id= $(this).attr('data')
       $.get("/providers/"+id+"/dislike");
     });
-     $(".alert").click(function(event){
+     $(".abox").click(function(event){
       event.preventDefault();
       alert("You Need To Login First");
     })
