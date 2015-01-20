@@ -37,5 +37,25 @@
       </div><!--/row-->
       <footer></footer>
     </div> <!-- /container -->
+
+    <script type="text/javascript">
+      function login_user(user_id){
+        user_id = $('#user_id').val();
+        console.log(user_id)
+        if(user_id == "Guest"){
+          $.ajax({
+            url: '/users/sign_out',
+            type: "delete"
+          }).done(function() {
+            window.location = '<%=root_path%>';
+          });
+        }
+        else{
+          $.get('/impersonate/user/'+user_id, function( data ) {
+            window.location = '<%=root_path%>';
+          });
+        }
+      }
+    </script>
   </body>
 </html>

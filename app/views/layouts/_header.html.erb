@@ -29,53 +29,36 @@
           <li class="active"><a href="<%= my_favorites_path %>">My Favorites</a></li>
         <% end %>
       </ul>
-      <ul class="navigation account-nav nav pull-right">
-        <li class="search" style="margin-top: 8px;">
-          <%= search_form_for(Service.search(params[:q]),:url=>search_path,:html=>{:class=>""},:method=>"post") do |f| %>
-            <%= f.search_field :name_cont, :class=>"live-search search-query" %>
-            <%#= f.submit "Search" %>
+      <div class="nav-collapse collapse">
+        <ul class="navigation account-nav nav pull-right">
+          <li class="search" style="margin-top: 8px;">
+            <%= search_form_for(Service.search(params[:q]),:url=>search_path,:html=>{:class=>""},:method=>"post") do |f| %>
+              <%= f.search_field :name_cont, :class=>"live-search search-query" %>
+              <%#= f.submit "Search" %>
+            <% end %>
+          </li>
+          <%if Rails.env == "development" %>
+            <li style="margin-top: 8px;">
+              <%= select_tag "user_id", options_for_select(["Guest"]+User.all.collect{ |u| [u.email, u.id]}, :selected=> (current_user ? current_user.id : '') ),{:class=>"form-control" ,:onchange=>"login_user(this.id);"} %>
+            </li>
           <% end %>
-        </li>
-        <%if Rails.env == "development" %>
-          <li style="margin-top: 8px;">
-            <%= select_tag "user_id", options_for_select(["Guest"]+User.all.collect{ |u| [u.email, u.id]}, :selected=> (current_user ? current_user.id : '') ),{:class=>"form-control" ,:onchange=>"login_user(this.id);"} %>
-          </li>
-        <% end %>
-        <% if current_user%>   
-          <li class="nav-item account">
-            <a class="user-link" href="<%=edit_user_registration_path%>" rel="nofollow">Account</a>
-          </li>
-          <li class="nav-item log-out" style="margin-top: -20px;">
-            <a href=""><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a>
-          </li>
-          <%else%>
-          <li >
-            <a class="class-link" href="<%= new_user_session_path %>" rel="nofollow">Login</a>
-          </li>
-          <li >
-            <a class="class-link" href="<%= new_user_registration_path %>" rel="nofollow">Sign up</a>
-          </li>
-        <%end%>
-      </ul>
+          <% if current_user%>   
+            <li class="nav-item account">
+              <a class="user-link" href="<%=edit_user_registration_path%>" rel="nofollow">Account</a>
+            </li>
+            <li class="nav-item log-out" style="margin-top: -20px;">
+              <a href=""><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a>
+            </li>
+            <%else%>
+            <li >
+              <a class="class-link" href="<%= new_user_session_path %>" rel="nofollow">Login</a>
+            </li>
+            <li >
+              <a class="class-link" href="<%= new_user_registration_path %>" rel="nofollow">Sign up</a>
+            </li>
+          <%end%>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  function login_user(user_id){
-    user_id = $('#user_id').val();
-    console.log(user_id)
-    if(user_id == "Guest"){
-      $.ajax({
-        url: '/users/sign_out',
-        type: "delete"
-      }).done(function() {
-        window.location = '<%=root_path%>';
-      });
-    }
-    else{
-      $.get('/impersonate/user/'+user_id, function( data ) {
-        window.location = '<%=root_path%>';
-      });
-    }
-  }
-</script>
