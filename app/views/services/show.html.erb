@@ -37,7 +37,6 @@
                   <div class="middle-box-img"><h3><%= provider.name%></h3>
                     <p><%= provider.description%>.</p>
                   </div>
-                  
                   <div class="navigatorrss">
                     <% if user_signed_in? %>
                       <a class="like" href="<%= like_provider_path(provider) %>" id="like_<%= provider.id %>" data="<%= provider.id %>">
@@ -46,16 +45,13 @@
                         </button>
                       </a>
                       <%else%>
-                      <a class="like" href="/providers/1-dsadsadasd/like">
+                      <a class="alert" href="/providers/1-dsadsadasd/like">
                         <button type="button" data="1" class="btn btn-default custujlo">
                           <i class="fa fa-angle-up"></i>
                         </button>
                       </a>
                     <%end%>
-
                     <p id="vote_count_<%= provider.id %>"><%= provider.get_upvotes.size %></p>
-
-
                     <% if user_signed_in? %>
                       <a class="dislike" href="<%= dislike_provider_path(provider) %>" id="dislike" data="<%= provider.id %>">
                         <button type="button"  data="#{provider.id}" class="btn btn-default custujlo">
@@ -63,23 +59,18 @@
                         </button>
                       </a>
                       <%else%>
-                      <a class="dislike" href="">
+                      <a class="alert dislike" href="">
                         <button type="button" data="" class="btn btn-default custujlo">
                           <i class="fa fa-angle-down"></i>
                         </button>
                       </a>
                     <%end%>
                   </div>
-                
-
-
                 </div> 
               <%end%>
             </div>
           </div>
         </div>
-
-
         <div class="right-div">
           <div class="headdig-ilm">                    
             <p>More CrowdRecs in San Francisco</p>
@@ -121,32 +112,10 @@
             <a href="#"><img alt="..." src="/assets/ad%20banner.png"></a>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Alert</h4>
-      </div>
-      <div class="modal-body">
-        You Need To Login First To Vote The Provider
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
   $(document).ready(function(){
     $(".like").click(function(event){
@@ -159,5 +128,29 @@
       id= $(this).attr('data')
       $.get("/providers/"+id+"/dislike");
     });
+     $(".alert").click(function(event){
+      event.preventDefault();
+      alert("You Need To Login First");
+    })
   });
 </script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
