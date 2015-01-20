@@ -27,6 +27,7 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
+      flash[:success] = 'Your service is updated successfully'
       redirect_to service_path(@service)
     else
       render :edit
@@ -35,6 +36,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
+    flash[:success] = 'Your service is deleted successfully'
     redirect_to services_path
   end
 

@@ -19,6 +19,7 @@ class ProvidersController < ApplicationController
     @provider = Provider.new(provider_params)
     @provider.user_id = current_user.id
     if @provider.save
+      flash[:success] = 'Your provider is created successfully'
       redirect_to provider_path(@provider)
     else
       render :new
@@ -27,6 +28,7 @@ class ProvidersController < ApplicationController
 
   def update
     if @provider.update(provider_params)
+      flash[:success] = 'Your provider is updated successfully'
       redirect_to provider_path(@provider)
     else
       render :edit
@@ -35,6 +37,7 @@ class ProvidersController < ApplicationController
 
   def destroy
     @provider.destroy
+    flash[:success] = 'Your provider is deleted successfully'
     redirect_to providers_path
   end
   

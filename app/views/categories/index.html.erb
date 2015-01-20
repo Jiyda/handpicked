@@ -1,3 +1,6 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <div class="container bootstrap-content">
   <div class="row main-row">
     <div class="span12 main-column">
@@ -31,8 +34,8 @@
                       <a href="<%= edit_category_path(category) %>">
                         <i class="fa fa-fw fa-pencil-square-o"></i>
                       </a>
-                      <a href="<%= category %>">
-                        <i class="fa fa-trash-o fa-fw"></i>
+                      <a href=""><%= link_to ""%>
+                        <%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, category , :method=>"delete" , data: {confirm: "Are you sure?"} %>
                       </a>
                     <%end%>
                   <%end%>

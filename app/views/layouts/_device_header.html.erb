@@ -8,9 +8,9 @@
         <a class="navbar-brand" href="<%= root_url%>">Handpickedoha2</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <% if params[:controller] == "registrations" %>
-            <div  style="margin-top: 7px;margin-right: -60px;color: white;" ><%= link_to "Log in", new_user_session_path, :style=>"color: white;",:class=>"pull-right btn"%></div>
+            <div  style="color: white;" ><%= link_to "Log in", new_user_session_path, :style=>"color: white;",:class=>"pull-right btn btn-primary"%></div>
           <% else %>
-            <div  style="margin-top: 7px;margin-right: -60px;"><%= link_to "Join for free", new_user_registration_path ,:style=>"color: white;", :class=>"pull-right btn btn-success"%></div>
+            <div  style=""><%= link_to "Join for free", new_user_registration_path ,:style=>"color: white;", :class=>"pull-right btn btn-success"%></div>
           <% end %>
         </div>
       </div>

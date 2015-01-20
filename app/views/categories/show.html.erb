@@ -1,7 +1,10 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <div class="header content-header well">
 	<% if user_signed_in? %>
 		<% if @category.user_id == current_user.id %>
-			<a class="btn btn-info pull-right edit-link category-link" href="<%= edit_category_path(@category)%>" rel="nofollow">        Edit Category
+			<a class="btn btn-primary pull-right edit-link category-link" href="<%= edit_category_path(@category)%>" rel="nofollow">        Edit Category
 			</a>    
 		<% end %>
 	<%end%>

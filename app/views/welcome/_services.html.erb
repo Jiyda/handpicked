@@ -1,7 +1,7 @@
 <% @services.each do |service| %>
 	<% if service.is_approved=="Approved"%>
 		<li class="odd item" data-rapid-context="service:1">      
-			<a href="<%= service.id %>">
+			<a href="<%= service_path(service) %>">
 				<div class="col-xs-12 col-sm-6 col-md-3 text-center homepage-tile" style="padding: 0px">
 				<!-- <img alt="Pizza" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTnr0-fVrVack3dClCxll6KYKNFT0fhNPO3D6Z_YSbipzzjIwj0"> -->
 				<% if service.imageurl.present? %>
