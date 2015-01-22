@@ -30,7 +30,7 @@
                 </td>
                 <td class="actions-view">
                   <% if user_signed_in? %>
-                    <% if category.user_id == current_user.id %>
+                    <% if (category.user_id == current_user.id) || current_user.is_admin?  %>
                       <a href="<%= edit_category_path(category) %>">
                         <i class="fa fa-fw fa-pencil-square-o"></i>
                       </a>
