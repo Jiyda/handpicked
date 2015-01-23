@@ -1,0 +1,25 @@
+/* Retina-specific stuff here */
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+    .logo-primary {
+        background: transparent url(https://nb9-stumbleupon.netdna-ssl.com/pnkh66cg4S8aQJ2rLlpy3w) no-repeat 50% 50%;
+        background-size: contain;
+    }
+    .rocket-arrow {
+        background: url(https://nb9-stumbleupon.netdna-ssl.com/_GbuVjui9HDvYY0UUNIq0A) no-repeat 12px 0px;
+        background-size: 12px auto;
+    }
+    .rocket:hover .rocket-arrow {
+        background: url(https://nb9-stumbleupon.netdna-ssl.com/_GbuVjui9HDvYY0UUNIq0A) no-repeat 12px -25px;
+    }
+    .btn.stumble-button:after {
+        background-image: url(https://nb9-stumbleupon.netdna-ssl.com/arpouZ2r2QxFxc10MsbJ1w);
+    }
+}

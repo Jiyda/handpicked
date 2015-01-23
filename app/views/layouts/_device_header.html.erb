@@ -1,19 +1,10 @@
-<nav class="navbar navbar-inverse">
-	<div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<%= root_url%>">Handpickedoha2</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <% if params[:controller] == "registrations" %>
-            <div  style="color: white;" ><%= link_to "Log in", new_user_session_path, :style=>"color: white;margin-top: 8px;",:class=>"pull-right btn btn-primary"%></div>
-          <% else %>
-            <div  style=""><%= link_to "Join for free", new_user_registration_path ,:style=>"color: white;margin-top: 8px;", :class=>"pull-right btn btn-success"%></div>
-          <% end %>
-        </div>
-      </div>
-
-
-</nav>
+<header class="front-header">
+  <a href="<%= root_url%>" class="logo-primary"></a>
+  <div class="header-actions">
+    <% if params[:controller] == "registrations" %>
+      <a class="sign-in" href="<%= new_user_session_path%>">Log in</a>
+    <%else%>
+      <a class="btn primary cta" href="<%= new_user_registration_path %>">Join for free</a>
+    <%end%>
+  </div>
+</header>

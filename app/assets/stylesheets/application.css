@@ -3,12 +3,24 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require bootstrap_and_overrides
-
+ *= require home/first
+ *= require home/second
+ *= require home/third
+ *= require home/four
+ *= require home/five
 */
 
 
 
 .img {
   background-image: url("/assets/login.jpg");
+}
+
+
+.form-login {
+	width: 300px;
+	padding: 25px;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 5px;
 }

@@ -1,0 +1,528 @@
+input:invalid {
+    background-color: #ffffff;
+}
+.fadeOut {
+    opacity: 0;
+}
+.l-header-top {
+    display: none;
+}
+.wrapper-content {
+    min-height: 300px;
+}
+.login {
+    color: #d1d1d1;
+    font-size: 13px;
+    position: absolute;
+    z-index: 1;
+    top: 25px;
+    right: 25px;
+}
+.logo-primary {
+    height: 50px;
+    width: 225px;
+    margin-left: 20px;
+    margin-top: 11px;
+    display: block;
+    float: left;
+    background: url(https://nb9-stumbleupon.netdna-ssl.com/Ts6XfoZDYpCxQKsZzP6Cww) no-repeat;
+}
+.login:hover {
+    color: #ffffff;
+}
+.signup {
+    height: 100%;
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 400;
+    font-stretch: normal;
+    z-index: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.l-master-b .l-content-primary-wrap {
+    padding-bottom: 0;
+}
+.btn-social.facebook {
+    width: 100%;
+}
+.form-step-heading {
+    font-size: 14px;
+    font-weight: bold;
+}
+.form-step-subheading {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    font-size: 14px;
+    text-align: left;
+}
+.form-signup fieldset,
+.captcha-wrap {
+    -webkit-transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    -ms-transition: opacity .3s;
+    -o-transition: opacity .3s;
+}
+.captcha-wrap > h1 {
+    text-align: center;
+    color: #f1f1f1;
+}
+#nucaptcha-widget {
+    height: 165px;
+}
+#nucaptcha-answer-table {
+    margin-top: 15px !important;
+}
+#nucaptcha-answer {
+    height: 38px !important;
+    width: 140px;
+}
+.form-signup .wrapper-input > label {
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+.form-signup .wrapper-input.error > label {
+    color: #ffffff;
+}
+.chzn-container {
+    color: #888;
+    text-shadow: none;
+}
+.form-signup select {
+    width: 115px;
+    height: 30px;
+    margin-right: 5px;
+    padding: 4px;
+    line-height: 30px;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.form-signup select.large {
+    width: 173px;
+}
+.form-signup .select-bday,
+.form-signup .select-byear {
+    width: 65px;
+}
+.form-stacked input.xlarge[type="text"],
+.form-stacked input.xlarge[type="email"],
+.form-stacked input.xlarge[type="password"] {
+    height: 39px;
+    padding: 8px 10px;
+}
+.form-signup input[type="text"],
+.form-signup input[type="email"],
+.form-signup input[type="password"] {
+    width: 100%;
+    border: 1px solid #444;
+    border-radius: 3px;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 400;
+    font-stretch: normal;
+    background: #f1f1f1;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.form-signup input[type="text"]:focus,
+.form-signup input[type="email"]:focus,
+.form-signup input[type="password"]:focus {
+    border: 1px solid #56B4EF;
+    border-color: #56B4EF;
+    -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, .2), 0 0 8px 1px rgba(82, 168, 236, .8);
+    -moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, .2), 0 0 8px 1px rgba(82, 168, 236, .8);
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, .2), 0 0 8px 1px rgba(82, 168, 236, .8);
+}
+input::-webkit-input-placeholder {
+    color: #999;
+}
+input:-moz-placeholder {
+    color: #999;
+}
+input::-moz-placeholder {
+    color: #999;
+}
+input:-ms-input-placeholder {
+    color: #999;
+}
+.form-signup .user-rec-form {
+    width: 320px;
+}
+.form-signup .user-rec-form .wrapper-input {
+    margin-bottom: 15px;
+}
+.form-signup label {
+    width: auto;
+    color: #f1f1f1;
+}
+.form-stacked .inline {
+    margin-top: 5px;
+}
+.form-stacked div.input.inline label {
+    margin-right: 6px;
+    font-size: 16px;
+    position: relative;
+    top: 2px;
+}
+.form-stacked .small .input.inline label {
+    font-size: 14px;
+}
+.form-signup .input {
+    margin-left: 68px;
+}
+.form-signup .user-actions-wrap {
+    margin-bottom: 5px;
+}
+.wrapper-input {
+    position: relative;
+    margin-bottom: 10px;
+}
+.next-wrap {
+    margin-top: 15px;
+}
+.input-state {
+    height: 18px;
+    width: 25px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+.spinning .input-state {
+    right: -7px;
+    top: 4px;
+}
+.error .input-state {
+    background: url(https://nb9-stumbleupon.netdna-ssl.com/OB65ozNxVZz_21WmZLgnUw) no-repeat -2px -25px;
+}
+.success .input-state {
+    background: url(https://nb9-stumbleupon.netdna-ssl.com/OB65ozNxVZz_21WmZLgnUw) no-repeat -2px 0;
+}
+.signup .wrapper-form {
+    width: 300px;
+    padding: 25px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.signup .wrapper-form .btn.large {
+    height: 42px;
+    width: 150px;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background: #2AB558;
+    background-image: linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+    background-image: -o-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+    background-image: -moz-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+    background-image: -webkit-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+    background-image: -ms-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #38AD5F), color-stop(1, #2AB558) );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#38AD5F', endColorstr='#2AB558',GradientType=0 );
+}
+.signup .wrapper-form .btn.large:hover {
+    border: 1px solid #147E46;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    background: #32A358;
+    background-image: linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+    background-image: -o-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+    background-image: -moz-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+    background-image: -webkit-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+    background-image: -ms-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #32A358), color-stop(1, #2AB558) );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32A358', endColorstr='#2AB558',GradientType=0 );
+}
+.signup .wrapper-form .btn.large:active {
+    border: 1px solid #212925;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+    -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+    -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+}
+.signup .wrapper-form .btn.large.submit.captcha {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    float: right;
+}
+.signup .wrapper-form h3 {
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: #f1f1f1;
+}
+#signup-options {
+    text-align: center;
+}
+.sign-in {
+    padding: 6px 20px;
+    padding-left: 35px;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    text-shadow: 0 1px 1px #333;
+    color: #F1F1F1;
+    background: url(https://nb9-stumbleupon.netdna-ssl.com/4i5xoqF0LSjYAY7gpnKl6w) no-repeat 0 0;
+}
+.front-image {
+    opacity: 0.5;
+}
+.front-header {
+    height: 74px;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: #111;
+    background: rgba(0,0,0,.75);
+}
+.header-actions {
+    margin-top: 28px;
+    float: right;
+}
+.sign-up-header {
+    font-size: 48px;
+    font-family: "HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed", "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+    font-weight:300;
+    font-stretch:condensed;
+    margin-bottom: 0;
+    text-shadow: 0 1px 2px #111;
+}
+.sign-up-subheader {
+    font-size: 22px;
+    text-shadow: 1px 2px 2px black;
+}
+.sign-up-divider {
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    text-align: center;
+    background-color: #616161;
+    border-top: 1px solid #272727;
+}
+.sign-up-divider span {
+    padding: 0 10px;
+    font-size: 16px;
+    position: relative;
+    top: -8px;
+    color: #dedede;
+}
+.sign-up-email {
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    display: block;
+}
+.form-stacked .wrapper-input {
+    min-height: 32px;
+}
+.form-stacked .wrapper-input.small {
+    min-height: 20px;
+    margin-bottom: 2px;
+}
+.form-stacked div.input {
+    margin-left: 0;
+}
+.form-stacked .actions {
+    border-top: 0 none;
+    text-align: left;
+}
+.facebook-connected-wrap {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.facebook-connected-thumb {
+    height: 35px;
+    width: 35px;
+}
+.facebook-connected-text {
+    color: #f1f1f1;
+    margin-left: 5px;
+    font-size: 14px;
+}
+.action {
+    margin-left: 20px;
+    font-size: 13px;
+}
+.wrapper-join-external {
+    padding: 30px 0 0px 0;
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+}
+.wrapper-facebook {
+    margin-bottom: 15px;
+    position: relative;
+}
+.wrapper-facebook img {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.l-master-c .l-column-right .wrapper-facepile {
+    padding-top: 0;
+}
+.wrapper-facepile iframe {
+    width: 286px;
+    max-height: 75px;
+    overflow: hidden;
+}
+
+.modal-content-signup {
+    width: 445px;
+    min-height: 240px;
+}
+
+.modal-content-signup h1 {
+    font-size: 24px;
+    margin: 10px 0 20px;
+}
+
+.modal-content-signup h2 {
+    font-size: 20px;
+    font-weight:normal;
+}
+
+.validate-captcha-option {
+    margin-top: 10px;
+}
+.not-username {
+    margin: 0;
+}
+.error-message {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #F03B18;
+}
+p.message-legal {
+    color: #aaaaaa;
+    margin: 0;
+    margin-top: 10px;
+}
+.message-legal a {
+    color: #ffffff;
+}
+.message-legal a:hover {
+    text-decoration: underline;
+}
+
+/* Captcha */
+.captcha {
+    width: 342px;
+    margin: 0 auto;
+    text-align: center;
+}
+.captcha-option-heading {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #f1f1f1;
+}
+.captcha-option-divider-text {
+    margin: 8px 0;
+    margin-top: 15px;
+    color: #f1f1f1;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: none;
+}
+.help-block {
+    max-width: 100%;
+    min-height: auto;
+    padding-top: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.side-by-side-test .captcha-facebook {
+    width: 740px;
+}
+.side-by-side-test h1 {
+    margin: 0;
+}
+.side-by-side-test h2 {
+    margin-bottom: 20px;
+}
+.side-by-side-test .wrap-captcha,
+.side-by-side-test .wrap-facebook {
+    padding: 20px 0 0 0;
+    float: left;
+}
+.side-by-side-test .wrap-facebook {
+    width: 345px;
+    height: 130px;
+    position: relative;
+    border-right: 1px solid #b2b2b2;
+}
+.side-by-side-test .wrap-captcha {
+    width: 315px;
+    padding: 0 0 0 40px;
+}
+.side-by-side-test .wrap-captcha .actions {
+    padding: 20px 0 0 158px;
+}
+.side-by-side-test .wrap-facebook ul {
+    list-style: disc inside;
+}
+.side-by-side-test .or-separator-disc {
+    position: absolute;
+    top: 30px;
+    left: 330px;
+}
+/* Nasty override for NuCaptcha's font-size medium*/
+#nucaptcha-widget #nucaptcha-widget-container #media-container a.cmd-audio {
+    font-size: 12px;
+}
+#directions-verbose-label {
+    font-size: 13px !important;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+    .signup {
+        background: none;
+    }
+    .signup .wrapper-form {
+        padding: 25px 0;
+    }
+    .sign-up-header {
+        font-size: 26px;
+    }
+    .front-header {
+        height: 60px;
+    }
+    .header-actions {
+        margin-top: 21px;
+    }
+    .logo-primary {
+        background: url(https://nb9-stumbleupon.netdna-ssl.com/0MKai1aiohqYe8AgwpeRug) no-repeat;
+        background-size: 50px;
+        width: 50px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    .sign-in {
+        margin-right: 0;
+    }
+    .wrapper-join-external {
+        padding-top: 20px;
+    }
+}
