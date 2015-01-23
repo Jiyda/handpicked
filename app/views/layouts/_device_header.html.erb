@@ -4,7 +4,36 @@
     <% if params[:controller] == "registrations" %>
       <a class="sign-in" href="<%= new_user_session_path%>">Log in</a>
     <%else%>
-      <a class="btn primary cta" href="<%= new_user_registration_path %>">Join for free</a>
+      <a class="btn primary cta success" style="height: 42px;
+width: 150px;
+padding: 0;
+line-height: 42px;
+font-size: 18px;
+border-radius: 5px;
+border: 1px solid transparent;
+background: #2AB558;
+background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #38AD5F), color-stop(1, #2AB558) );
+margin-top: -13px;
+"  href="<%= new_user_registration_path %>">Join for free</a>
     <%end%>
   </div>
 </header>
+
+
+
+
+<style>
+	.success {
+		height: 42px;
+		width: 150px;
+		padding: 0;
+		line-height: 42px;
+		font-size: 18px;
+		border-radius: 5px;
+		border: 1px solid transparent;
+		background: #2AB558;
+		background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #38AD5F), color-stop(1, #2AB558) );
+		margin-top: -13px;
+
+		}
+</style>

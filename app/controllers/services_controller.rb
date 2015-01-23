@@ -18,8 +18,11 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     @service.user_id = current_user.id
+    if current_user.is_admin?
+      @service.is_approved = "Approved"
+    end
     if @service.save
-      redirect_to services_path , :flash => { :success => "Your sevice is created successfully and not approved check submission" }
+      redirect_to services_path , :flash => { :success => "Your sevice is created successfully" }
     else
       render :new
     end
