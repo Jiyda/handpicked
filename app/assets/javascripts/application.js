@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery.inview
-//= require login
+//= require home/login
 
 
 $(function() {
