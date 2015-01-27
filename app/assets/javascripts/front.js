@@ -12,6 +12,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require font
+//= require jquery.filedrop
+//= require script
 //
 
 

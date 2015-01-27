@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/status' => 'welcome#submissions' , :as => 'submissions'
   get '/service/:id/approve' => 'welcome#approve' , :as => 'approve'
   get '/service/:id/disapprove' => 'welcome#disapprove' , :as => 'disapprove'
+  post '/services/:id/new_service_update' => 'services#new_service_update', :as => :new_service_update
   resources :categories
 
   devise_for :users, :controllers => {:registrations => "registrations" , omniauth_callbacks: 'omniauth_callbacks'}
